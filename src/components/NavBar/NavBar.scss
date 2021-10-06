@@ -1,0 +1,29 @@
+@import '../../assets/colors.scss';
+
+.NavBar {
+  padding: 10px 5%;
+  display: flex;
+  justify-content: space-between;
+  background-color: $bg-1;
+}
+
+.NavBar__logo {
+  display: flex;
+  align-items: center;
+}
+
+.NavBar__logo img {
+  width: 70px;
+}
+
+.NavBar__logo h1 {
+  margin-left: 10px;
+  color: $fg-1;
+  font-family: 'Berkshire Swash', cursive;;
+}
+
+.NavBar ul {
+  display: flex;
+  list-style: none;
+}
+

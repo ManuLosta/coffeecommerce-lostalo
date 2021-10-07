@@ -1,10 +1,22 @@
 @import '../../assets/colors.scss';
 
 .NavBar {
-  padding: 10px 5%;
+  padding: 20px 5vw;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: $bg-1;
+}
+
+.NavBar__left {
+  display: flex;
+  align-items: center;
+}
+
+.NavBar__right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .NavBar__logo {
@@ -18,12 +30,119 @@
 
 .NavBar__logo h1 {
   margin-left: 10px;
+  font-size: 2.4rem;
   color: $fg-1;
   font-family: 'Berkshire Swash', cursive;;
 }
 
-.NavBar ul {
+.NavBar__links {
   display: flex;
+  list-style: none;
+  margin-left: 50px;
+}
+
+.NavBar__links li {
+  margin: 0 15px;
+  font-size: 1.6rem;
+}
+
+.NavBar__links li a, .NavBar__links li {
+  color: $fg-1;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+.NavBar__links li a:hover, .NavBar__links li:hover {
+  border-bottom: 2px solid $fg-1;
+}
+
+.NavBar__icons {
+  display: flex;
+  margin-left: auto;
   list-style: none;
 }
 
+.NavBar__icons li {
+  margin-left: 35px;
+}
+
+.NavBar__search {
+  display: flex;
+  background-color: $bg-2;
+  border-radius: 8px;
+}
+
+.NavBar__search img {
+  padding: 10px;
+}
+
+.NavBar__search input {
+  padding: 10px;
+  background-color: transparent;
+  border: 0px;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: $fg-1;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.NavBar__search button {
+  background-color: $fg-2;
+  padding: 15px;
+  height: 100%;
+  border: none;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  color: $bg-1;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.dropdown__container {
+  position: relative;
+}
+
+.dropdown__container::after {
+  content: " ";
+  margin-left: 7px;
+  vertical-align: middle;
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-bottom: 2px solid $fg-1;
+  border-left: 2px solid $fg-1;
+  transform: rotate(-45deg);
+}
+
+.dropdown {
+  position: absolute;
+  left: -10px;
+  display: flex;
+  padding: 25px;
+  border-radius: 8px;
+  flex-direction: column;
+  background-color: $bg-2;
+  visibility: hidden;
+  opacity: 0;
+  transition:all ease-in-out 0.4s;
+}
+
+.dropdown a {
+  margin: 5px 0;
+}
+
+.dropdown__container:hover .dropdown {
+  margin-top: 10px;
+  visibility: visible;
+  opacity: 1;
+}
+
+@media only screen and (max-width: 1180px) {
+  .NavBar h1 {
+    display: none;
+  }
+}

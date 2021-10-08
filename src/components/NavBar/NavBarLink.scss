@@ -1,0 +1,22 @@
+@import '../../assets/colors.scss';
+
+a {
+  margin: 0 15px;
+  font-size: 1.6rem;
+  color: $fg-1;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+}
+
+a:hover, .NavBar__links li:hover {
+  border-bottom: 2px solid $fg-1;
+}
+
+@media only screen and (max-width: 998px) {
+  a {
+    font-size: 2.4rem;
+    margin: 15px 0;
+  }
+}

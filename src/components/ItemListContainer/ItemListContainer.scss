@@ -1,0 +1,40 @@
+@import '../../assets/colors.scss';
+
+.ItemListContainer {
+  margin-top: 110px;
+  width: 100%;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse;
+}
+
+.ItemListContainer h2 {
+  width: 50%;
+  font-size: clamp(3.8rem, 5vw, 6rem);
+  color: $fg-1;
+  font-weight: 700;
+}
+
+.ItemListContainer img {
+  width: clamp(300px, 30%, 600px);
+}
+
+@media only screen and (max-width: 998px) {
+  .ItemListContainer {
+    margin-top: 68px;
+  }
+}
+
+@media only screen and (max-width: 648px) {
+  .ItemListContainer {
+    padding: 0 25px;
+    justify-content: center;
+  }
+
+  .ItemListContainer h2 {
+    width: 100%;
+    margin-top: 20px;
+  }
+}

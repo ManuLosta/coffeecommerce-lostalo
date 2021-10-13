@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import logo from '../../assets/icons/logo.svg';
-import cartIcon from '../../assets/icons/cart-icon.svg';
 import searchIcon from '../../assets/icons/search-icon.svg';
 import './NavBar.scss';
 import Dropdown from './Dropdown';
 import NavBarLink from './NavBarLink';
+import CartWidget from './CartWidget';
 import { Squash as Hamburger } from 'hamburger-react';
 
 const NavBar = () => {
@@ -18,13 +18,13 @@ const NavBar = () => {
       </div>
       <div className={`NavBar__content ${isOpen ? 'show' : ''}`}>
         <div className="NavBar__left">
-          <NavBarLink title="Home" url="/" />
-          <NavBarLink title="Productos" url="/" />
+          <NavBarLink title="Home" url="/coffeecommerce-lostalo" />
+          <NavBarLink title="Productos" url="/coffeecommerce-lostalo" />
           <Dropdown title="Categorías">
-            <NavBarLink title="Café" url="/" />
-            <NavBarLink title="Té" url="/" />
-            <NavBarLink title="Cafeteras" url="/" />
-            <NavBarLink title="Termos" url="/" />
+            <NavBarLink title="Café" url="/coffeecommerce-lostalo" />
+            <NavBarLink title="Té" url="/coffeecommerce-lostalo" />
+            <NavBarLink title="Cafeteras" url="/coffeecommerce-lostalo" />
+            <NavBarLink title="Termos" url="/coffeecommerce-lostalo" />
           </Dropdown>
         </div>
         <div className="NavBar__search">
@@ -33,11 +33,8 @@ const NavBar = () => {
           <button>Buscar</button>
         </div>
       </div>
-      <ul className="NavBar__icons">
-        <li>
-          <img src={cartIcon} alt="Cart" />
-        </li>
-      </ul>
+
+      <CartWidget />
       <Hamburger color="#5E2801" toggled={isOpen} toggle={setOpen} />
     </nav>
   );

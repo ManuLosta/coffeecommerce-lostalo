@@ -1,6 +1,9 @@
 @import '../../assets/colors.scss';
 
 .NavBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   padding: 20px 5vw;
   display: flex;
   align-items: center;
@@ -10,7 +13,6 @@
 .NavBar__content {
   width: 100%;
   display: flex;
-  justify-content: space-between;
 }
 
 .NavBar__left {
@@ -32,27 +34,14 @@
   margin-left: 10px;
   font-size: 2.4rem;
   color: $fg-1;
-  font-family: 'Berkshire Swash', cursive;;
-}
-
-.NavBar__icons {
-  display: flex;
-  margin-left: auto;
-  list-style: none;
-}
-
-.NavBar__icons li {
-  margin-left: 35px;
-}
-
-.NavBar__icons img {
-  width: 26px;
+  font-family: 'Berkshire Swash', cursive;
 }
 
 .NavBar__search {
   display: flex;
   background-color: $bg-2;
   border-radius: 8px;
+  margin-left: auto;
 }
 
 .NavBar__search img {
@@ -97,7 +86,7 @@
 
 @media only screen and (max-width: 998px) {
   .NavBar {
-    padding: 10px 20px
+    padding: 10px 20px;
   }
 
   .NavBar__content {
@@ -126,7 +115,7 @@
 
   .NavBar__logo h1 {
     display: inline-block;
-    font-size: clamp(1rem, 10vw, 2rem); 
+    font-size: clamp(1rem, 10vw, 2rem);
   }
 
   .NavBar__left {
@@ -136,7 +125,6 @@
   .hamburger-react {
     width: 22px;
     display: inline-block;
-    margin-left: 18px;
   }
 
   .NavBar__icons li {
@@ -154,5 +142,4 @@
   .NavBar__logo img {
     display: none;
   }
-
 }

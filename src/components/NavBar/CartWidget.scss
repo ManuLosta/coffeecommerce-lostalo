@@ -1,0 +1,14 @@
+.CartWidget {
+  margin-left: 25px;
+}
+
+.CartWidget img {
+  width: 30px;
+}
+
+@media only screen and (max-width: 998px) {
+  .CartWidget {
+    margin-left: auto;
+    margin-right: 25px;
+  }
+}

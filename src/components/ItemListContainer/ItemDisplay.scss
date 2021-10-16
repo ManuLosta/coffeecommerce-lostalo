@@ -65,7 +65,7 @@
 
   .ItemDisplay img {
     margin: 0;
-    width: clamp(0px, 75%, 360px);
+    width: clamp(50px, calc(80% - 40px), 360px);
   }
 
   .ItemDisplay__information {

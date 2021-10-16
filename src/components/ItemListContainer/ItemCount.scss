@@ -1,0 +1,55 @@
+@import '../../assets/colors.scss';
+
+.ItemCount {
+  height: 40px;
+  margin-top: 20px;
+  display: flex;
+  align-items: stretch;
+}
+
+.ItemCount p {
+  padding: 8px;
+  width: 100px;
+  text-align: center;
+  background-color: $bg-2;
+  font-size: 1.8rem;
+  color: $fg-2;
+}
+
+.ItemCount button {
+  width: 40px;
+  background-color: $fg-2;
+  color: $bg-2;
+  border: none;
+  font-family: 'Work Sans', sans-serif;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.ItemCount button.disabled {
+  opacity: 0.8;
+  cursor: auto;
+}
+
+.ItemCount button:nth-child(1) {
+  border-bottom-left-radius: 8px;
+  border-top-left-radius: 8px;
+}
+
+.ItemCount button:nth-child(3) {
+  border-bottom-right-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.ItemCount__addToCart {
+  margin-top: 20px;
+  width: 180px;
+  padding: 8px;
+  background-color: $fg-2;
+  color: $bg-2;
+  border: none;
+  cursor: pointer;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.6rem;
+  border-radius: 8px;
+}

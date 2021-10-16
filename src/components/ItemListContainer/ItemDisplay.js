@@ -1,36 +1,45 @@
 import { useState } from 'react';
+import ItemCount from './ItemCount';
 import './ItemDisplay.scss';
 
 const ItemDisplay = () => {
   const [item, setItem] = useState(0);
   const products = [
     {
+      id: '1',
       name: 'Light Roast Coffee',
       description: 'Honey, citrus fruit, and floral.',
       price: '$14.99',
       imgUrl:
         'https://coffeebros.com/wp-content/uploads/2019/01/light-roast-website-png.png',
+      stock: 10,
     },
     {
+      id: '2',
       name: 'Medium Roast Coffee',
       description: 'Brown sugar, red fruit, and hazelnut.',
       price: '$14.99',
       imgUrl:
         'https://coffeebros.com/wp-content/uploads/2019/01/medium-roast-website-png-1.png',
+      stock: 7,
     },
     {
+      id: '4',
       name: 'Dark Roast Coffee',
       description: 'Chocolate, caramel, and maple.',
       price: '$14.99',
       imgUrl:
         'https://coffeebros.com/wp-content/uploads/2019/01/dark-roast-website-png-2.png',
+      stock: 11,
     },
     {
+      id: '3',
       name: 'Espresso Roast Coffee',
       description: 'Strawberry, sugar cane, and vanilla.',
       price: '$14.99',
       imgUrl:
         'https://coffeebros.com/wp-content/uploads/2019/02/Espresso-roast-website-png.png',
+      stock: 16,
     },
   ];
 
@@ -67,6 +76,11 @@ const ItemDisplay = () => {
         <h3>{products[item].name}</h3>
         <p>{products[item].description}</p>
         <p className="price">{products[item].price}</p>
+        <ItemCount
+          id={products[item].id}
+          initial={1}
+          stock={products[item].stock}
+        />
       </div>
     </div>
   );

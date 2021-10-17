@@ -15,3 +15,7 @@ Deployed [here](https://manulostalo.com.ar/coffeecommerce-lostalo/)
 ## Landing
 
 ![Alt Text](https://i.imgur.com/RYOIqtG.png)
+
+## Item Counter
+
+![Alt Text](https://media.giphy.com/media/ri4nABHPff8wdoqCgt/giphy.gif)

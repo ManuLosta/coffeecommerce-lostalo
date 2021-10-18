@@ -6,7 +6,7 @@ const ItemDisplay = () => {
   const [item, setItem] = useState(0);
   const products = [
     {
-      id: '1',
+      id: '0',
       name: 'Light Roast Coffee',
       description: 'Honey, citrus fruit, and floral.',
       price: '$14.99',
@@ -15,7 +15,7 @@ const ItemDisplay = () => {
       stock: 10,
     },
     {
-      id: '2',
+      id: '1',
       name: 'Medium Roast Coffee',
       description: 'Brown sugar, red fruit, and hazelnut.',
       price: '$14.99',
@@ -24,7 +24,7 @@ const ItemDisplay = () => {
       stock: 7,
     },
     {
-      id: '4',
+      id: '2',
       name: 'Dark Roast Coffee',
       description: 'Chocolate, caramel, and maple.',
       price: '$14.99',
@@ -45,6 +45,12 @@ const ItemDisplay = () => {
 
   const handleItemChange = i => {
     setItem(i);
+  };
+
+  const onAdd = (id, count) => {
+    alert(
+      `Se ha agregado correctamente: ${count} ${products[Number(id)].name}`
+    );
   };
 
   return (
@@ -77,6 +83,7 @@ const ItemDisplay = () => {
         <p>{products[item].description}</p>
         <p className="price">{products[item].price}</p>
         <ItemCount
+          onAdd={onAdd}
           id={products[item].id}
           initial={1}
           stock={products[item].stock}

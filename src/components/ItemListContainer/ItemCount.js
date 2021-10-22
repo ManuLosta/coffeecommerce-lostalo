@@ -19,14 +19,14 @@ const ItemCount = ({ stock, initial, id, onAdd }) => {
     <>
       <div className="ItemCount">
         <button
-          className={count === 1 && 'disabled'}
+          className={count === 1 ? 'disabled' : ''}
           onClick={() => handleAdd(-1)}
         >
           -
         </button>
         <p>{count}</p>
         <button
-          className={count === stock && 'disabled'}
+          className={count === stock ? 'disabled' : ''}
           onClick={() => handleAdd(1)}
         >
           +

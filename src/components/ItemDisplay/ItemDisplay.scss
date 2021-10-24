@@ -1,65 +1,78 @@
 @import '../../assets/colors.scss';
 
 .ItemDisplay {
-  padding-top: 100px;
+  padding: 70px 0;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-image: url('../../assets/icons/deal.svg');
+  background-repeat: repeat;
+  background-position: -10px;
+
+  img {
+    margin-right: 20px;
+    width: clamp(300px, 20vw, 600px);
+  }
+
+  .ItemCount,
+  .ItemCount__addToCart {
+    width: clamp(170px, 40%, 300px);
+  }
 }
 
 .ItemDisplay__buttons {
   margin-top: 50px;
   display: flex;
   flex-direction: column;
-}
 
-.ItemDisplay__buttons span {
-  margin-bottom: 10px;
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 50%;
-}
+  span {
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
 
-.ItemDisplay__buttons span.active {
-  padding: 5px;
-  border: 5px solid $fg-1;
-}
-
-.ItemDisplay img {
-  margin-right: 20px;
-  width: clamp(300px, 20vw, 600px);
+    &.active {
+      padding: 5px;
+      border: 5px solid $fg-1;
+    }
+  }
 }
 
 .ItemDisplay__information {
   width: 20%;
   margin: 50px 0 0 50px;
-}
 
-.ItemDisplay__information > h3 {
-  color: $fg-1;
-  font-size: 2.8rem;
-}
+  > h3 {
+    color: $fg-1;
+    font-size: 3rem;
+  }
 
-.ItemDisplay__information > p {
-  margin-top: 10px;
-  color: $fg-1;
-  font-size: 1.8rem;
-}
+  > p {
+    margin-top: 10px;
+    color: $fg-1;
+    font-size: 1.8rem;
 
-.ItemDisplay__information > p.price {
-  color: $fg-2;
-  font-size: 1.8rem;
-  font-weight: 600;
+    &.price {
+      color: $fg-2;
+      font-size: 3rem;
+      font-weight: 600;
+    }
+  }
 }
 
 @media only screen and (max-width: 690px) {
   .ItemDisplay {
     padding: 50px 15px;
     align-items: center;
+
+    .ItemCount,
+    .ItemCount__addToCart {
+      width: 80%;
+    }
   }
 
   .ItemDisplay img {

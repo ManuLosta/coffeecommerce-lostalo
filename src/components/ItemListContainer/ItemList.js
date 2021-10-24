@@ -1,6 +1,6 @@
 import Item from './Item';
 import './ItemList.scss';
-import Loader from '../Loader/Loader';
+import LoaderItem from '../Loader/LoaderItem';
 
 const ItemList = ({ items, loading }) => {
   return (
@@ -11,9 +11,9 @@ const ItemList = ({ items, loading }) => {
           items.map(item => <Item key={item.id} item={item} />)
         ) : (
           <>
-            <Loader />
-            <Loader />
-            <Loader />
+            <LoaderItem />
+            <LoaderItem />
+            <LoaderItem />
           </>
         )}
       </div>

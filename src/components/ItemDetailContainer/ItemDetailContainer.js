@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getItems } from '../../services/util';
+import LoaderDetails from '../Loader/LoaderDetails';
 import ItemDetail from './ItemDetail';
 import './ItemDetailContainer.scss';
 
@@ -17,11 +18,12 @@ const ItemDetailContainer = () => {
     const data = await getItems();
     setItem(data.find(item => item.id === id));
     setLoading(false);
+    window.scrollTo(0, 0);
   };
 
   return (
     <div className="ItemDetailContainer">
-      {loading ? null : <ItemDetail item={item} />}
+      {loading ? <LoaderDetails /> : <ItemDetail item={item} />}
     </div>
   );
 };

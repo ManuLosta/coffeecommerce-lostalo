@@ -3,12 +3,12 @@
 .ItemList {
   margin-top: 50px;
   padding: 50px 5vw;
-}
 
-.ItemList h2 {
-  text-align: center;
-  font-size: 3.2rem;
-  color: $fg-1;
+  h2 {
+    text-align: center;
+    font-size: 4rem;
+    color: $fg-1;
+  }
 }
 
 .ItemList__flex {
@@ -34,6 +34,18 @@
 
   img {
     width: 100%;
+  }
+
+  &:active {
+    transform: scale(4);
+
+    img {
+      display: none;
+    }
+
+    .Item__info {
+      display: none;
+    }
   }
 }
 

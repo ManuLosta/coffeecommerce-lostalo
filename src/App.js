@@ -8,11 +8,8 @@ function App() {
     <Router>
       <NavBar />
       <Switch>
-        <Route exact path="/coffeecommerce-lostalo" component={Home} />
-        <Route
-          path="/coffeecommerce-lostalo/details/:id"
-          component={ItemDetailContainer}
-        />
+        <Route exact path="/" component={Home} />
+        <Route path="/details/:id" component={ItemDetailContainer} />
       </Switch>
     </Router>
   );

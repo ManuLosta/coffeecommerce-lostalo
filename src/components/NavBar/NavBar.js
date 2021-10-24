@@ -18,38 +18,23 @@ const NavBar = () => {
       </div>
       <div className={`NavBar__content ${isOpen ? 'show' : ''}`}>
         <div className="NavBar__left">
-          <Link onClick={() => setOpen(false)} to="/coffeecommerce-lostalo">
+          <Link onClick={() => setOpen(false)} to="/">
             Inicio
           </Link>
-          <Link
-            onClick={() => setOpen(false)}
-            to="/coffeecommerce-lostalo/products"
-          >
+          <Link onClick={() => setOpen(false)} to="/products">
             Productos
           </Link>
           <Dropdown title="Categorías">
-            <Link
-              onClick={() => setOpen(false)}
-              to="/coffeecommerce-lostalo/cafe"
-            >
+            <Link onClick={() => setOpen(false)} to="/cafe">
               Café
             </Link>
-            <Link
-              onClick={() => setOpen(false)}
-              to="/coffeecommerce-lostalo/te"
-            >
+            <Link onClick={() => setOpen(false)} to="/te">
               Té
             </Link>
-            <Link
-              onClick={() => setOpen(false)}
-              to="coffeecommerce-lostalo/cafeteras"
-            >
+            <Link onClick={() => setOpen(false)} to="/cafeteras">
               Cafeteras
             </Link>
-            <Link
-              onClick={() => setOpen(false)}
-              to="/coffeecommerce-lostalo/termos"
-            >
+            <Link onClick={() => setOpen(false)} to="/termos">
               Termos
             </Link>
           </Dropdown>

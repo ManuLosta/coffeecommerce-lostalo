@@ -1,12 +1,20 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import NavBar from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <NavBar />
-      <ItemListContainer greeting="Obtené el café que necesitás al mejor precio!" />
-    </div>
+      <Switch>
+        <Route exact path="/coffeecommerce-lostalo" component={Home} />
+        <Route
+          path="/coffeecommerce-lostalo/details/:id"
+          component={ItemDetailContainer}
+        />
+      </Switch>
+    </Router>
   );
 }
 

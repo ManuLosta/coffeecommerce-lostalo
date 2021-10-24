@@ -1,0 +1,48 @@
+@import '../../assets/colors.scss';
+
+.ItemDetailContainer {
+  padding: 50px 5vw;
+  margin-top: 110px;
+}
+
+.ItemDetail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  img {
+    width: clamp(400px, 60%, 700px);
+    pointer-events: none;
+  }
+}
+
+.ItemDetail__content {
+  width: clamp(300px, 30%, 800px);
+}
+
+.ItemDetail__category {
+  padding: 8px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background-color: $shade-1;
+  color: $fg-2;
+  border-radius: 5px;
+}
+
+.ItemDetail__title {
+  margin-bottom: 20px;
+  color: $fg-1;
+  font-size: 4rem;
+}
+
+.ItemDetail__description {
+  margin: 20px 0;
+  color: $fg-1;
+  font-size: 1.8rem;
+}
+
+.ItemDetail__price {
+  font-size: 3.2rem;
+  color: $fg-2;
+}

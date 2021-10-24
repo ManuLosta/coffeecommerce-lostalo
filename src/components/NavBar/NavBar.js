@@ -3,8 +3,8 @@ import logo from '../../assets/icons/logo.svg';
 import searchIcon from '../../assets/icons/search-icon.svg';
 import './NavBar.scss';
 import Dropdown from './Dropdown';
-import NavBarLink from './NavBarLink';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
 
 const NavBar = () => {
@@ -18,13 +18,40 @@ const NavBar = () => {
       </div>
       <div className={`NavBar__content ${isOpen ? 'show' : ''}`}>
         <div className="NavBar__left">
-          <NavBarLink title="Home" url="/coffeecommerce-lostalo" />
-          <NavBarLink title="Productos" url="/coffeecommerce-lostalo" />
+          <Link onClick={() => setOpen(false)} to="/coffeecommerce-lostalo">
+            Inicio
+          </Link>
+          <Link
+            onClick={() => setOpen(false)}
+            to="/coffeecommerce-lostalo/products"
+          >
+            Productos
+          </Link>
           <Dropdown title="Categorías">
-            <NavBarLink title="Café" url="/coffeecommerce-lostalo" />
-            <NavBarLink title="Té" url="/coffeecommerce-lostalo" />
-            <NavBarLink title="Cafeteras" url="/coffeecommerce-lostalo" />
-            <NavBarLink title="Termos" url="/coffeecommerce-lostalo" />
+            <Link
+              onClick={() => setOpen(false)}
+              to="/coffeecommerce-lostalo/cafe"
+            >
+              Café
+            </Link>
+            <Link
+              onClick={() => setOpen(false)}
+              to="/coffeecommerce-lostalo/te"
+            >
+              Té
+            </Link>
+            <Link
+              onClick={() => setOpen(false)}
+              to="coffeecommerce-lostalo/cafeteras"
+            >
+              Cafeteras
+            </Link>
+            <Link
+              onClick={() => setOpen(false)}
+              to="/coffeecommerce-lostalo/termos"
+            >
+              Termos
+            </Link>
           </Dropdown>
         </div>
         <div className="NavBar__search">

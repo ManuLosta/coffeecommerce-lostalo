@@ -12,6 +12,10 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap-reverse;
+
+  img {
+    width: clamp(300px, 30%, 600px);
+  }
 }
 
 .Landing__content {
@@ -19,44 +23,40 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-}
 
-.Landing__content p {
-  margin-top: 15px;
-  font-size: 1.8rem;
-  color: $fg-1;
-  font-weight: 500;
-}
+  p {
+    margin-top: 15px;
+    font-size: 1.8rem;
+    color: $fg-1;
+    font-weight: 500;
+  }
 
-.Landing__content a {
-  padding: 5px;
-  margin-top: 15px;
-  width: fit-content;
-  background-color: $fg-2;
-  color: $bg-1;
-  font-size: 1.6rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  border: 6px solid $fg-2;
-  transition: 0.3s ease-in-out;
-  text-decoration: none;
-}
+  a {
+    padding: 5px;
+    margin-top: 15px;
+    width: fit-content;
+    background-color: $fg-2;
+    color: $bg-1;
+    font-size: 1.6rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 6px solid $fg-2;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+  }
 
-.Landingr__content a:hover {
-  color: $fg-2;
-  background-color: $bg-1;
-  font-weight: 700;
-}
+  a:hover {
+    color: $fg-2;
+    background-color: $bg-1;
+    font-weight: 700;
+  }
 
-.Landing__content h2 {
-  font-size: clamp(3.8rem, 5vw, 6rem);
-  color: $fg-1;
-  font-weight: 700;
-}
-
-.ItemListContainer__landing img {
-  width: clamp(300px, 30%, 600px);
+  h2 {
+    font-size: clamp(3.8rem, 5vw, 6rem);
+    color: $fg-1;
+    font-weight: 700;
+  }
 }
 
 @media only screen and (max-width: 998px) {

@@ -18,7 +18,7 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  });
 
   return (
     <div className="ItemListContainer">

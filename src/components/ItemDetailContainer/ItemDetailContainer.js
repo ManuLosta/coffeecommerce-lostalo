@@ -18,7 +18,6 @@ const ItemDetailContainer = () => {
     const data = await getItems();
     setItem(data.find(item => item.id === id));
     setLoading(false);
-    window.scrollTo(0, 0);
   };
 
   return (

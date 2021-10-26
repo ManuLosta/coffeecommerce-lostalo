@@ -2,7 +2,7 @@
 
 Un e-commerce desarrollado con ReactJS donde podés encontrar todo tipo de café, té, cafeteras y más!
 
-Deployed [here](https://manulostalo.com.ar/coffeecommerce-lostalo/)
+Deployed [here](https://coffeecommerce.netlify.app/)
 
 ## Navbar
 

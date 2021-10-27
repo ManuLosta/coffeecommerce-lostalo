@@ -1,25 +1,28 @@
 import './ItemListContainer.scss';
 import ItemList from './ItemList';
-import { getItems } from '../../services/util';
+import { getCategory, getItems } from '../../services/util';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({ all }) => {
-  const [items, setItems] = useState([]);
+const ItemListContainer = ({ allItems }) => {
+  const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
     setLoading(true);
-    getItems().then(data => {
-      if (all) {
+    if (allItems) {
+      getItems().then(data => {
         setItems(data);
-      } else {
-        setItems(data.filter(item => item.category.toLowerCase() === id));
-      }
-      setLoading(false);
-    });
-  }, [all, id]);
+        setLoading(false);
+      });
+    } else {
+      getCategory(id).then(data => {
+        setItems(data);
+        setLoading(false);
+      });
+    }
+  }, [allItems, id]);
 
   return (
     <div className="ItemListContainer">
@@ -27,7 +30,7 @@ const ItemListContainer = ({ all }) => {
         loading={loading}
         items={items}
         category={
-          all ? 'Productos' : `${id.charAt(0).toUpperCase()}${id.slice(1)}`
+          allItems ? 'Productos' : `${id.charAt(0).toUpperCase()}${id.slice(1)}`
         }
       />
     </div>

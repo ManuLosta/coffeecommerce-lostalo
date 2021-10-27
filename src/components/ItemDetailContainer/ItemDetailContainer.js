@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getItems } from '../../services/util';
+import { getItem } from '../../services/util';
 import LoaderDetails from '../Loader/LoaderDetails';
 import ItemDetail from './ItemDetail';
 import './ItemDetailContainer.scss';
@@ -11,14 +11,11 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    getItem();
+    getItem(id).then(data => {
+      setItem(data);
+      setLoading(false);
+    });
   });
-
-  const getItem = async () => {
-    const data = await getItems();
-    setItem(data.find(item => item.id === id));
-    setLoading(false);
-  };
 
   return (
     <div className="ItemDetailContainer">

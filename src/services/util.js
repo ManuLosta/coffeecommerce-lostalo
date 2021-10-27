@@ -125,8 +125,26 @@ const items = [
 export const getItems = () => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(items);
+      resolve(items.sort((a, b) => 0.5 - Math.random()));
     }, 1500);
+  });
+  return promise;
+};
+
+export const getCategory = category => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(items.filter(item => item.category.toLowerCase() === category));
+    }, 500);
+  });
+  return promise;
+};
+
+export const getItem = id => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(items.find(item => item.id === id));
+    }, 1000);
   });
   return promise;
 };

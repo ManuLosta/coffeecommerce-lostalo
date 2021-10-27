@@ -1,7 +1,7 @@
 const items = [
   {
     id: '1',
-    category: 'Cafés',
+    category: 'Café',
     name: 'Kilimanjaro Peaberry',
     price: '$21.25',
     description:
@@ -12,7 +12,7 @@ const items = [
   },
   {
     id: '2',
-    category: 'Cafés',
+    category: 'Café',
     name: 'Yoner Guerrero',
     price: '$22.75 ',
     description:
@@ -23,7 +23,7 @@ const items = [
   },
   {
     id: '3',
-    category: 'Cafés',
+    category: 'Café',
     name: 'Streetlevel',
     price: '$17.50',
     description:
@@ -34,7 +34,7 @@ const items = [
   },
   {
     id: '4',
-    category: 'Cafés',
+    category: 'Café',
     name: 'Githongo',
     price: '$24.25',
     description:
@@ -45,7 +45,7 @@ const items = [
   },
   {
     id: '5',
-    category: 'Cafés',
+    category: 'Café',
     name: 'Bronson',
     price: '$16.50',
     description:
@@ -56,7 +56,7 @@ const items = [
   },
   {
     id: '6',
-    category: 'Cafés',
+    category: 'Café',
     name: 'Granitos de Ortiz',
     price: '$22.00',
     description:
@@ -65,13 +65,68 @@ const items = [
       'https://i.shgcdn.com/cb87482e-8cc1-45f1-8b95-408b186a8ddb/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
     stock: 6,
   },
+  {
+    id: '7',
+    category: 'Té',
+    name: 'Ceylon Decaf',
+    price: '$9.50',
+    description:
+      'Todo el intenso sabor del té negro de Sri Lanka, sin teína, para un disfrute diario para los amantes del Té Negro.',
+    imgUrl:
+      'https://dhb3yazwboecu.cloudfront.net/1007//15104_CeylonDecaf_1000X1000_l-.jpg',
+    stock: 10,
+  },
+  {
+    id: '8',
+    category: 'Té',
+    name: 'Thai Mango Black Tea',
+    price: '$9.95',
+    description:
+      'Té Negro silvestre y Ecosostenible del norte de Tailandia con el auténtico sabor del mango. Las grandes y oscuras hojas confieren a esta bebida un envolvente y prolongado aroma.',
+    imgUrl:
+      'https://dhb3yazwboecu.cloudfront.net/1007//72002_ThaiCoconutGreenTea21000X1000_l-.jpg',
+    stock: 17,
+  },
+  {
+    id: '9',
+    category: 'Té',
+    name: 'Rooibos Chai',
+    price: '$9.50',
+    description:
+      'Mezcla tonificante e isotónica compuesta por una base de Rooibos y especias al perfecto estilo hindú. Sin teína, esta mezcla chai es especialmente buena infusionada directamente con leche de avena para tomarse tanto en frio como en caliente. Sus ingredientes naturales se aprecian tanto por sus beneficios para la salud como por sus propiedades calmantes.',
+    imgUrl:
+      'https://dhb3yazwboecu.cloudfront.net/1007/fotosProducto/tes/29111_RooibosChai_1000x1000_l.jpg',
+    stock: 17,
+  },
+  {
+    id: '10',
+    category: 'Té',
+    name: 'Infusión Chamomile & Lemon',
+    price: '$8.95',
+    description:
+      'Una digestiva infusión de manzanilla natural con un delicioso y refrescante toque de limón con múltiples propiedades, ideal para los momentos relajantes, por la noche y después de las comidas. ',
+    imgUrl:
+      'https://dhb3yazwboecu.cloudfront.net/1007//76007_07InfusionChamomileLemon100G_1000X1000_l-.jpg',
+    stock: 10,
+  },
+  {
+    id: '11',
+    category: 'Té',
+    name: 'Té Negro Chocolate',
+    price: '$6.95',
+    description:
+      'Té negro con trocitos de chocolate que se funden en la taza y aroma natural de cacao. La dulzura del fruto de los dioses, que se intensifica añadiendo un toque de azúcar.',
+    imgUrl:
+      'https://dhb3yazwboecu.cloudfront.net/1007/fotosProducto/tes/10103_ChocolateBlackTea_1000x1000_l.jpg',
+    stock: 12,
+  },
 ];
 
 export const getItems = () => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(items);
-    }, 2000);
+    }, 1500);
   });
   return promise;
 };

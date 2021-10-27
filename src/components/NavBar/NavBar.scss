@@ -53,6 +53,10 @@
   }
 }
 
+a.NavBar__logo:hover {
+  border-bottom: 2px solid $bg-1;
+}
+
 .NavBar__search {
   display: flex;
   background-color: $bg-2;

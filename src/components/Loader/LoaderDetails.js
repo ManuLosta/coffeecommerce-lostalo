@@ -4,7 +4,7 @@ import ContentLoader from 'react-content-loader';
 const LoaderDetails = props => {
   useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   return (
     <div

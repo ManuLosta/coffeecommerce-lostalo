@@ -1,8 +1,7 @@
 @import '../../assets/colors.scss';
 
 .ItemList {
-  margin-top: 50px;
-  padding: 50px 5vw;
+  padding: 0px 5vw;
 
   h2 {
     text-align: center;
@@ -19,6 +18,9 @@
 }
 
 .Item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   margin: 35px;
   padding: 20px;
   width: clamp(300px, 33.33%, 400px);
@@ -34,29 +36,21 @@
 
   img {
     width: 100%;
-  }
-
-  &:active {
-    transform: scale(4);
-
-    img {
-      display: none;
-    }
-
-    .Item__info {
-      display: none;
-    }
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: white;
   }
 }
 
 .Item .Item__info--name {
-  font-size: 2.2rem;
+  margin-top: auto;
+  font-size: 2.6rem;
   font-weight: 700;
   color: $fg-1;
 }
 
 .Item__info--price {
   margin-top: 10px;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: $fg-2;
 }

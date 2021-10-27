@@ -2,7 +2,6 @@ import { useState } from 'react';
 import logo from '../../assets/icons/logo.svg';
 import searchIcon from '../../assets/icons/search-icon.svg';
 import './NavBar.scss';
-import Dropdown from './Dropdown';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
@@ -12,32 +11,24 @@ const NavBar = () => {
 
   return (
     <nav className="NavBar">
-      <div className="NavBar__logo">
+      <Link to="/" className="NavBar__logo">
         <img src={logo} alt="Logo" />
         <h1>CoffeeCommerce</h1>
-      </div>
+      </Link>
       <div className={`NavBar__content ${isOpen ? 'show' : ''}`}>
         <div className="NavBar__left">
-          <Link onClick={() => setOpen(false)} to="/">
-            Inicio
+          <Link onClick={() => setOpen(false)} to="/category/café">
+            Café
           </Link>
-          <Link onClick={() => setOpen(false)} to="/products">
-            Productos
+          <Link onClick={() => setOpen(false)} to="/category/té">
+            Té
           </Link>
-          <Dropdown title="Categorías">
-            <Link onClick={() => setOpen(false)} to="/cafe">
-              Café
-            </Link>
-            <Link onClick={() => setOpen(false)} to="/te">
-              Té
-            </Link>
-            <Link onClick={() => setOpen(false)} to="/cafeteras">
-              Cafeteras
-            </Link>
-            <Link onClick={() => setOpen(false)} to="/termos">
-              Termos
-            </Link>
-          </Dropdown>
+          <Link onClick={() => setOpen(false)} to="/cafeteras">
+            Cafeteras
+          </Link>
+          <Link onClick={() => setOpen(false)} to="/accesorios">
+            Accesorios
+          </Link>
         </div>
         <div className="NavBar__search">
           <img src={searchIcon} alt="Search icon" />

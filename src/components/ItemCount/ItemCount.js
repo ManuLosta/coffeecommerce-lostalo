@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './ItemCount.scss';
 
-const ItemCount = ({ stock, initial, id, onAdd }) => {
+const ItemCount = ({ stock, initial, id, onAdd, onChange }) => {
   const [count, setCount] = useState(initial);
 
   useEffect(() => {
@@ -13,6 +13,7 @@ const ItemCount = ({ stock, initial, id, onAdd }) => {
       return;
     }
     setCount(count + amount);
+    onChange(count + amount);
   };
 
   return (

@@ -23,11 +23,8 @@ const NavBar = () => {
           <Link onClick={() => setOpen(false)} to="/category/té">
             Té
           </Link>
-          <Link onClick={() => setOpen(false)} to="/cafeteras">
+          <Link onClick={() => setOpen(false)} to="/category/cafeteras">
             Cafeteras
-          </Link>
-          <Link onClick={() => setOpen(false)} to="/accesorios">
-            Accesorios
           </Link>
         </div>
         <div className="NavBar__search">

@@ -34,11 +34,20 @@
     transform: scale(1.1);
   }
 
-  img {
+  .Item__image {
     width: 100%;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    aspect-ratio: 1 / 1;
     background-color: white;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+    }
   }
 }
 

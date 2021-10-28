@@ -11,7 +11,7 @@ const LoaderDetails = props => {
       style={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-evenly',
         width: '100%',
         flexWrap: 'wrap',
       }}

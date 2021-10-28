@@ -4,4 +4,6 @@ Un e-commerce desarrollado con ReactJS donde podés encontrar todo tipo de café
 
 Deployed [here](https://coffeecommerce.netlify.app/)
 
-![Alt Text](https://media.giphy.com/media/N2lm9wbkVKOlgqXOoO/source.gif)
+## GIF de demostración
+
+![Alt Text](https://media.giphy.com/media/erAriTOptUcNJD3YMo/source.gif)

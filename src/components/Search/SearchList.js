@@ -20,7 +20,7 @@ const SearchList = () => {
               .replace(/[\u0300-\u036f]/g, '')
               .toLowerCase(),
             query
-          ) > 0.3
+          ) > 0.4
         ) {
           return item;
         } else if (
@@ -30,7 +30,7 @@ const SearchList = () => {
               .replace(/[\u0300-\u036f]/g, '')
               .toLowerCase(),
             query
-          ) > 0.7
+          ) > 0.8
         ) {
           return item;
         } else {

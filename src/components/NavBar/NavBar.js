@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import logo from '../../assets/icons/logo.svg';
-import searchIcon from '../../assets/icons/search-icon.svg';
 import './NavBar.scss';
+import Search from '../Search/Search';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
@@ -27,11 +27,7 @@ const NavBar = () => {
             Cafeteras
           </Link>
         </div>
-        <div className="NavBar__search">
-          <img src={searchIcon} alt="Search icon" />
-          <input type="text" />
-          <button>Buscar</button>
-        </div>
+        <Search onSearch={() => setOpen(false)} />
       </div>
 
       <CartWidget />

@@ -11,11 +11,12 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     getItem(id).then(data => {
       setItem(data);
       setLoading(false);
     });
-  });
+  }, [id]);
 
   return (
     <div className="ItemDetailContainer">

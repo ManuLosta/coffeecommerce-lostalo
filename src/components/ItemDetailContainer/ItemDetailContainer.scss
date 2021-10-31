@@ -30,6 +30,26 @@
   .ItemCount__addToCart {
     width: clamp(100px, 50%, 300px);
   }
+
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: $fg-2;
+    color: $bg-1;
+    font-size: 1.6rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 6px solid $fg-2;
+    text-decoration: none;
+  }
+
+  .ItemDetail__cartText {
+    margin-top: 40px;
+    font-size: 1.8rem;
+    color: $fg-1;
+    font-weight: 700;
+  }
 }
 
 .ItemDetail__content {

@@ -14,6 +14,7 @@ const LoaderDetails = props => {
         justifyContent: 'space-evenly',
         width: '100%',
         flexWrap: 'wrap',
+        minHeight: '75vh',
       }}
     >
       <ContentLoader

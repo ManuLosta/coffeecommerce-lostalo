@@ -1,10 +1,18 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount';
 
 const ItemDetail = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
+
   const handleChange = value => {
     setQuantity(value);
+  };
+
+  const handleAdd = () => {
+    setQuantity(1);
+    setAdded(true);
   };
 
   return (
@@ -21,7 +29,21 @@ const ItemDetail = ({ item }) => {
         <p className="ItemDetail__price">
           ${(item.price * quantity).toFixed(2)}
         </p>
-        <ItemCount stock={item.stock} initial={1} onChange={handleChange} />
+        {!added ? (
+          <ItemCount
+            stock={item.stock}
+            initial={1}
+            onChange={handleChange}
+            onAdd={handleAdd}
+          />
+        ) : (
+          <>
+            <p className="ItemDetail__cartText">
+              Este producto ya se encuentra en tu carrito.
+            </p>
+            <Link to="/cart">Terminar la compra</Link>
+          </>
+        )}
       </div>
     </div>
   );

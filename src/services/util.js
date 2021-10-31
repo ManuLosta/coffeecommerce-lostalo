@@ -2,29 +2,7 @@ const items = [
   {
     id: '1',
     category: 'Café',
-    name: 'Kilimanjaro Peaberry',
-    price: 21.25,
-    description:
-      'Este café tiene rasgos clásicos de cacao en polvo decadente, seguidos de un cuerpo de regaliz casi negro. Sería genial combinarlo con un cóctel como base.',
-    imgUrl:
-      'https://i.shgcdn.com/f808e05a-17f5-4498-a45d-b5310e5ed79d/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-    stock: 5,
-  },
-  {
-    id: '2',
-    category: 'Café',
-    name: 'Yoner Guerrero',
-    price: 22.75,
-    description:
-      'No es frecuente que tengamos una oferta peruana en el menú, y este es nuestro primer año llevando café de Yoner Guerrero. Este café ofrece notas de uva blanca crujiente, una leve acidez de nectarina y termina con la dulzura equilibrada de la manzana roja.',
-    imgUrl:
-      'https://i.shgcdn.com/423bf3b1-8c41-4aac-9cfc-e18a5933385d/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-    stock: 7,
-  },
-  {
-    id: '3',
-    category: 'Café',
-    name: 'Streetlevel',
+    name: 'Café Streetlevel',
     price: 17.5,
     description:
       'Streetlevel es un café que se puede preparar de varias formas y seguir siendo una taza de café clásicamente dulce y equilibrada. Tiene un toque de dulce clementina cítrica y acidez de manzana roja. Eso pasa a un acabado de panal de abeja, que termina con una nota bien redondeada.',
@@ -33,9 +11,9 @@ const items = [
     stock: 4,
   },
   {
-    id: '4',
+    id: '2',
     category: 'Café',
-    name: 'Githongo',
+    name: 'Café Githongo',
     price: 24.25,
     description:
       'Githongo es una oferta sutil para un café de Kenia: la esperada sensación jugosa en la boca está presente, pero tiene notas suaves y florales de cáscara de limón en toda la taza. Su dulzor es de fruta de la pasión tanto en aroma como en perfil de sabor.',
@@ -44,9 +22,20 @@ const items = [
     stock: 10,
   },
   {
-    id: '5',
+    id: '3',
+    category: 'Cafeteras',
+    name: 'Bodum Java Prensa Francesa',
+    price: 60.95,
+    description:
+      'Con un gran prestigio en el mercado de cafeteras Bodum se destaca por la calidad ofrecida en sus productos y una de las más vendidas en el comercio, un negocio familiar que brinda una gran variedad con una experiencia inigualable.',
+    imgUrl:
+      'https://http2.mlstatic.com/D_NQ_NP_2X_750471-MLA41983912667_052020-F.webp',
+    stock: 6,
+  },
+  {
+    id: '4',
     category: 'Café',
-    name: 'Bronson',
+    name: 'Café Bronson',
     price: 16.5,
     description:
       'Nuestra versión del French Roast. Disfrute del sedoso chocolate negro y la dulzura del azúcar sin refinar con nuestro tueste más oscuro. Combina bien con crema y azúcar. Cualquiera que disfrute de un café extra atrevido le encantará.',
@@ -55,18 +44,7 @@ const items = [
     stock: 12,
   },
   {
-    id: '6',
-    category: 'Café',
-    name: 'Granitos de Ortiz',
-    price: 22.0,
-    description:
-      'Nos entusiasma el regreso de los cafés costarricenses cada año, ya que tienen una acidez tropical y un sabor vibrante. La oferta de esta temporada de la familia Calderon es una opción versátil para el bebedor de café de todos los días.',
-    imgUrl:
-      'https://i.shgcdn.com/cb87482e-8cc1-45f1-8b95-408b186a8ddb/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
-    stock: 6,
-  },
-  {
-    id: '7',
+    id: '5',
     category: 'Té',
     name: 'Ceylon Decaf',
     price: 9.5,
@@ -77,9 +55,30 @@ const items = [
     stock: 10,
   },
   {
+    id: '6',
+    category: 'Café',
+    name: 'Café Kilimanjaro Peaberry',
+    price: 21.25,
+    description:
+      'Este café tiene rasgos clásicos de cacao en polvo decadente, seguidos de un cuerpo de regaliz casi negro. Sería genial combinarlo con un cóctel como base.',
+    imgUrl:
+      'https://i.shgcdn.com/f808e05a-17f5-4498-a45d-b5310e5ed79d/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
+    stock: 5,
+  },
+  {
+    id: '7',
+    category: 'Cafeteras',
+    name: 'Bonavita Connoisseur 8-Cup One-Touch',
+    price: 132.25,
+    description:
+      'The Connoisseur ofrece características seleccionadas que imitan el método de elaboración artesanal de vertido. Originalmente desarrollado para determinar cómo definir mejor la calidad del café, el estándar Golden Cup estableció una relación entre las mediciones objetivas y las preferencias populares para la intensidad ideal del sabor del café y la fuerza de la preparación.',
+    imgUrl: 'https://m.media-amazon.com/images/I/71e-fMyCf4L._AC_SL1500_.jpg',
+    stock: 3,
+  },
+  {
     id: '8',
     category: 'Té',
-    name: 'Thai Mango Black Tea',
+    name: 'Té Negro Thai Mango',
     price: 9.95,
     description:
       'Té Negro silvestre y Ecosostenible del norte de Tailandia con el auténtico sabor del mango. Las grandes y oscuras hojas confieren a esta bebida un envolvente y prolongado aroma.',
@@ -111,6 +110,27 @@ const items = [
   },
   {
     id: '11',
+    category: 'Cafeteras',
+    name: 'Chemex Pour-Over',
+    price: 44.65,
+    description:
+      'El vertido Chemex permite cubrir y refrigerar el café para recalentarlo sin perder sabor. Como todas las cosas buenas, el sabor pleno requiere tiempo y tu propio toque especial. La cafetera Chemex ofrece solo los elementos esenciales para el rico sabor del café, para que su gusto personal y su enfoque brillen.',
+    imgUrl: 'https://m.media-amazon.com/images/I/41puVST2MNL._AC_.jpg',
+    stock: 7,
+  },
+  {
+    id: '12',
+    category: 'Café',
+    name: 'Café Yoner Guerrero',
+    price: 22.75,
+    description:
+      'No es frecuente que tengamos una oferta peruana en el menú, y este es nuestro primer año llevando café de Yoner Guerrero. Este café ofrece notas de uva blanca crujiente, una leve acidez de nectarina y termina con la dulzura equilibrada de la manzana roja.',
+    imgUrl:
+      'https://i.shgcdn.com/423bf3b1-8c41-4aac-9cfc-e18a5933385d/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
+    stock: 7,
+  },
+  {
+    id: '13',
     category: 'Té',
     name: 'Té Negro Chocolate',
     price: 6.95,
@@ -121,7 +141,18 @@ const items = [
     stock: 12,
   },
   {
-    id: '12',
+    id: '14',
+    category: 'Café',
+    name: 'Café Granitos de Ortiz',
+    price: 22.0,
+    description:
+      'Nos entusiasma el regreso de los cafés costarricenses cada año, ya que tienen una acidez tropical y un sabor vibrante. La oferta de esta temporada de la familia Calderon es una opción versátil para el bebedor de café de todos los días.',
+    imgUrl:
+      'https://i.shgcdn.com/cb87482e-8cc1-45f1-8b95-408b186a8ddb/-/format/auto/-/preview/3000x3000/-/quality/lighter/',
+    stock: 6,
+  },
+  {
+    id: '15',
     category: 'Cafeteras',
     name: 'Bialetti Moka Express',
     price: 50.95,
@@ -131,43 +162,12 @@ const items = [
       'https://http2.mlstatic.com/D_NQ_NP_985151-MLA32583466386_102019-O.webp',
     stock: 4,
   },
-  {
-    id: '13',
-    category: 'Cafeteras',
-    name: 'Bodum Java Prensa Francesa',
-    price: 60.95,
-    description:
-      'Con un gran prestigio en el mercado de cafeteras Bodum se destaca por la calidad ofrecida en sus productos y una de las más vendidas en el comercio, un negocio familiar que brinda una gran variedad con una experiencia inigualable.',
-    imgUrl:
-      'https://http2.mlstatic.com/D_NQ_NP_2X_750471-MLA41983912667_052020-F.webp',
-    stock: 6,
-  },
-  {
-    id: '14',
-    category: 'Cafeteras',
-    name: 'Bonavita Connoisseur 8-Cup One-Touch',
-    price: 132.25,
-    description:
-      'The Connoisseur ofrece características seleccionadas que imitan el método de elaboración artesanal de vertido. Originalmente desarrollado para determinar cómo definir mejor la calidad del café, el estándar Golden Cup estableció una relación entre las mediciones objetivas y las preferencias populares para la intensidad ideal del sabor del café y la fuerza de la preparación.',
-    imgUrl: 'https://m.media-amazon.com/images/I/71e-fMyCf4L._AC_SL1500_.jpg',
-    stock: 3,
-  },
-  {
-    id: '15',
-    category: 'Cafeteras',
-    name: 'Chemex Pour-Over',
-    price: 44.65,
-    description:
-      'El vertido Chemex permite cubrir y refrigerar el café para recalentarlo sin perder sabor. Como todas las cosas buenas, el sabor pleno requiere tiempo y tu propio toque especial. La cafetera Chemex ofrece solo los elementos esenciales para el rico sabor del café, para que su gusto personal y su enfoque brillen.',
-    imgUrl: 'https://m.media-amazon.com/images/I/41puVST2MNL._AC_.jpg',
-    stock: 7,
-  },
 ];
 
 export const getItems = () => {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(items.sort((a, b) => 0.5 - Math.random()));
+      resolve(items);
     }, 1500);
   });
   return promise;

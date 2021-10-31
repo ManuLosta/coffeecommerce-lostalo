@@ -4,10 +4,10 @@ import { getCategory, getItems } from '../../services/util';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ItemListContainer = ({ allItems }) => {
+const ItemListContainer = ({ allItems, title, category }) => {
   const [items, setItems] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams();
+  const { categoryId } = useParams();
 
   useEffect(() => {
     setLoading(true);
@@ -17,12 +17,12 @@ const ItemListContainer = ({ allItems }) => {
         setLoading(false);
       });
     } else {
-      getCategory(id).then(data => {
+      getCategory(categoryId).then(data => {
         setItems(data);
         setLoading(false);
       });
     }
-  }, [allItems, id]);
+  }, [allItems, categoryId]);
 
   return (
     <div className="ItemListContainer">
@@ -30,7 +30,9 @@ const ItemListContainer = ({ allItems }) => {
         loading={loading}
         items={items}
         category={
-          allItems ? 'Productos' : `${id.charAt(0).toUpperCase()}${id.slice(1)}`
+          allItems
+            ? 'Productos'
+            : `${categoryId.charAt(0).toUpperCase()}${categoryId.slice(1)}`
         }
       />
     </div>

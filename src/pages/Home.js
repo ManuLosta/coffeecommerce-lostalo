@@ -7,7 +7,7 @@ const Home = () => {
     <>
       <Hero />
       <ItemDisplay />
-      <ItemListContainer allItems={true} />
+      <ItemListContainer allItems={true} title="Productos" />
     </>
   );
 };

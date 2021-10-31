@@ -57,44 +57,6 @@ a.NavBar__logo:hover {
   border-bottom: 2px solid $bg-1;
 }
 
-.NavBar__search {
-  display: flex;
-  background-color: $bg-2;
-  border-radius: 8px;
-  margin-left: auto;
-
-  img {
-    padding: 10px;
-  }
-
-  input {
-    width: 100%;
-    padding: 10px;
-    background-color: transparent;
-    border: 0px;
-    border-radius: 8px;
-    outline: none;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: $fg-1;
-    font-family: 'Work Sans', sans-serif;
-  }
-
-  button {
-    background-color: $fg-2;
-    padding: 15px;
-    height: 100%;
-    border: none;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-    color: $bg-1;
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1.4rem;
-    cursor: pointer;
-  }
-}
-
 .hamburger-react {
   display: none;
 }
@@ -156,12 +118,6 @@ a.NavBar__logo:hover {
 
   .NavBar__icons li {
     margin-left: 18px;
-  }
-
-  .NavBar__search {
-    position: absolute;
-    width: 80%;
-    top: 20px;
   }
 }
 

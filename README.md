@@ -12,3 +12,4 @@ Deployed [here](https://coffeecommerce.netlify.app/)
 
 - [Hamburger React](https://www.npmjs.com/package/hamburger-react) : Para crear el botón que abre la navegación en mobile.
 - [React Content Loader](https://github.com/danilowoz/react-content-loader): Una alternativa al típico spinner. Hace que la expriencia del usuario sea mejor.
+- [string-similarity](https://www.npmjs.com/package/string-similarity): Para comparar dos strings y ver su similitud. Lo utilicé para la lógica de la búsqueda.

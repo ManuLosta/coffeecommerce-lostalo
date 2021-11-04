@@ -1,13 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../context/CartContext';
+import ConfirmBox from '../ConfirmBox/ConfirmBox';
 import './ItemDisplay.scss';
+import { Link } from 'react-router-dom';
 
 const ItemDisplay = () => {
   const [item, setItem] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  const handleChange = value => {
-    setQuantity(value);
-  };
   const products = [
     {
       id: '0',
@@ -46,6 +45,34 @@ const ItemDisplay = () => {
       stock: 16,
     },
   ];
+  const [quantity, setQuantity] = useState(1);
+  const [confirm, setConfirm] = useState(false);
+  const { items, addItem, isInCart, getQuantity } = useContext(CartContext);
+  console.log(items);
+  console.log(getQuantity(products[item].id, products[item].stock));
+
+  const handleChange = value => {
+    setQuantity(value);
+  };
+
+  const handleAdd = () => {
+    if (isInCart(products[item].id)) {
+      setConfirm(true);
+      return;
+    }
+    addItem(products[item], quantity);
+    setQuantity(1);
+  };
+
+  const handleConfirm = () => {
+    addItem(products[item], quantity);
+    setConfirm(false);
+    setQuantity(1);
+  };
+
+  const handleCancel = () => {
+    setConfirm(false);
+  };
 
   const handleItemChange = i => {
     setItem(i);
@@ -86,13 +113,26 @@ const ItemDisplay = () => {
         <h3>{products[item].name}</h3>
         <p>{products[item].description}</p>
         <p className="price">${(products[item].price * quantity).toFixed(2)}</p>
-        <ItemCount
-          onAdd={onAdd}
-          id={products[item].id}
-          initial={1}
-          stock={products[item].stock}
-          onChange={handleChange}
-        />
+        {getQuantity(products[item].id, products[item].stock) === 0 ? (
+          <>
+            <p className="ItemDetail__cartText">No hay stock.</p>
+            <Link to="/cart">Ir al carrito</Link>
+          </>
+        ) : (
+          <ItemCount
+            stock={getQuantity(products[item].id, products[item].stock)}
+            onChange={handleChange}
+            onAdd={handleAdd}
+            count={quantity}
+          />
+        )}
+        {confirm ? (
+          <ConfirmBox
+            onConfirm={handleConfirm}
+            onCancel={handleCancel}
+            message="Este producto ya se encuentra en el carrito. ¿Desea agregar más?"
+          />
+        ) : null}
       </div>
     </div>
   );

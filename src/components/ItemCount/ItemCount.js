@@ -1,18 +1,10 @@
-import { useState, useEffect } from 'react';
 import './ItemCount.scss';
 
-const ItemCount = ({ stock, initial, id, onAdd, onChange }) => {
-  const [count, setCount] = useState(initial);
-
-  useEffect(() => {
-    setCount(initial);
-  }, [id, initial]);
-
+const ItemCount = ({ stock, id, onAdd, onChange, count }) => {
   const handleAdd = amount => {
     if (count + amount > stock || count + amount < 1) {
       return;
     }
-    setCount(count + amount);
     onChange(count + amount);
   };
 

@@ -1,18 +1,37 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
+import { CartContext } from '../../context/CartContext';
+import ConfirmBox from '../ConfirmBox/ConfirmBox';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
-  const [added, setAdded] = useState(false);
+  const [confirm, setConfirm] = useState(false);
+  const { items, addItem, isInCart, getQuantity } = useContext(CartContext);
+  console.log(items);
+  console.log(getQuantity(item.id, item.stock));
 
   const handleChange = value => {
     setQuantity(value);
   };
 
   const handleAdd = () => {
+    if (isInCart(item.id)) {
+      setConfirm(true);
+      return;
+    }
+    addItem(item, quantity);
     setQuantity(1);
-    setAdded(true);
+  };
+
+  const handleConfirm = () => {
+    addItem(item, quantity);
+    setConfirm(false);
+    setQuantity(1);
+  };
+
+  const handleCancel = () => {
+    setConfirm(false);
   };
 
   return (
@@ -29,21 +48,26 @@ const ItemDetail = ({ item }) => {
         <p className="ItemDetail__price">
           ${(item.price * quantity).toFixed(2)}
         </p>
-        {!added ? (
+        {getQuantity(item.id, item.stock) === 0 ? (
+          <>
+            <p className="ItemDetail__cartText">No hay stock.</p>
+            <Link to="/cart">Ir al carrito</Link>
+          </>
+        ) : (
           <ItemCount
-            stock={item.stock}
-            initial={1}
+            stock={getQuantity(item.id, item.stock)}
             onChange={handleChange}
             onAdd={handleAdd}
+            count={quantity}
           />
-        ) : (
-          <>
-            <p className="ItemDetail__cartText">
-              Este producto ya se encuentra en tu carrito.
-            </p>
-            <Link to="/cart">Terminar la compra</Link>
-          </>
         )}
+        {confirm ? (
+          <ConfirmBox
+            onConfirm={handleConfirm}
+            onCancel={handleCancel}
+            message="Este producto ya se encuentra en el carrito. ¿Desea agregar más?"
+          />
+        ) : null}
       </div>
     </div>
   );

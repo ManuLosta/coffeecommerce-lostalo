@@ -3,6 +3,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
 import SearchList from './components/Search/SearchList';
+import { CartProvider } from './context/CartContext';
 import Home from './pages/Home';
 
 function App() {
@@ -10,18 +11,20 @@ function App() {
     <Router>
       <NavBar />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/item/:id">
-          <ItemDetailContainer />
-        </Route>
-        <Route extact path="/category/:categoryId">
-          <ItemListContainer />
-        </Route>
-        <Route path="/search/:query">
-          <SearchList />
-        </Route>
+        <CartProvider>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/item/:id">
+            <ItemDetailContainer />
+          </Route>
+          <Route extact path="/category/:categoryId">
+            <ItemListContainer />
+          </Route>
+          <Route path="/search/:query">
+            <SearchList />
+          </Route>
+        </CartProvider>
       </Switch>
     </Router>
   );

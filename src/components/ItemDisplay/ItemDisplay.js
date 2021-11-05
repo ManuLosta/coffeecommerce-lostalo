@@ -78,12 +78,6 @@ const ItemDisplay = () => {
     setItem(i);
   };
 
-  const onAdd = (id, count) => {
-    alert(
-      `Se ha agregado correctamente: ${count} ${products[Number(id)].name}`
-    );
-  };
-
   return (
     <div className="ItemDisplay">
       <img src={products[item].imgUrl} alt="" />

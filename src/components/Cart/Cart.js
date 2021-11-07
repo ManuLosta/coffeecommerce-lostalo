@@ -19,7 +19,12 @@ const Cart = () => {
   return (
     <div className="Cart">
       {totalItems === 0 ? (
-        <p>No hay productis</p>
+        <>
+          <p className="Cart__empty">No hay productos en el carrito</p>
+          <Link to="/" className="Cart__empty--button">
+            Comprar
+          </Link>
+        </>
       ) : (
         <>
           <div className="Cart__list">

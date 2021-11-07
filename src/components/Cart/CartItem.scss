@@ -43,9 +43,11 @@
       color: $fg-1;
       font-size: 1.6rem;
       font-weight: 600;
+      width: 140px;
 
       &.price {
-        margin: 10px 0;
+        width: auto;
+        margin: 10px 15px;
         font-weight: 700;
         font-size: 1.8rem;
       }
@@ -54,6 +56,7 @@
 
   .CartItem__controls {
     display: flex;
+    flex-grow: 1;
     justify-content: space-evenly;
 
     .ItemCount {
@@ -74,11 +77,17 @@
   }
 }
 
-@media only screen and (max-width: 630px) {
-  .CartItem__controls {
-    margin-top: 5px;
-    justify-content: center;
-    width: 100%;
-    flex-grow: 4;
+@media only screen and (max-width: 650px) {
+  .CartItem {
+    .CartItem__info {
+      .CartItem__info--text {
+        width: auto;
+      }
+    }
+
+    .CartItem__controls {
+      margin-top: 5px;
+      justify-content: space-evenly;
+    }
   }
 }

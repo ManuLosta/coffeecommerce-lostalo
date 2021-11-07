@@ -10,9 +10,10 @@
 html {
   font-size: 62.5%;
   -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Work Sans', sans-serif;
-  background-color: $bg-1;
+  background-color: $bg-3;
 }

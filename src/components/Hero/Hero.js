@@ -11,7 +11,7 @@ const Hero = () => {
           Empezá tu mañana de la mejor forma con un buen café. Elegí alguno de
           nuestro catálogo y disfrutá un sabor único.
         </p>
-        <Link to="/">Comprar ahora</Link>
+        <a href="#list">Comprar ahora</a>
       </div>
       <img src={heroImage} alt="Hero" />
     </div>

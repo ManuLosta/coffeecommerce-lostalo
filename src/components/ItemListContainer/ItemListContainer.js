@@ -25,7 +25,7 @@ const ItemListContainer = ({ allItems, title, category }) => {
   }, [allItems, categoryId]);
 
   return (
-    <div className="ItemListContainer">
+    <div id="list" className="ItemListContainer">
       <ItemList
         loading={loading}
         items={items}

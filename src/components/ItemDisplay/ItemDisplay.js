@@ -9,7 +9,7 @@ const ItemDisplay = () => {
   const [item, setItem] = useState(0);
   const products = [
     {
-      id: '0',
+      id: '00',
       name: 'Light Roast Coffee',
       description: 'Honey, citrus fruit, and floral.',
       price: 14.99,
@@ -18,7 +18,7 @@ const ItemDisplay = () => {
       stock: 10,
     },
     {
-      id: '1',
+      id: '01',
       name: 'Medium Roast Coffee',
       description: 'Brown sugar, red fruit, and hazelnut.',
       price: 14.99,
@@ -27,7 +27,7 @@ const ItemDisplay = () => {
       stock: 7,
     },
     {
-      id: '2',
+      id: '02',
       name: 'Dark Roast Coffee',
       description: 'Chocolate, caramel, and maple.',
       price: 14.99,
@@ -36,7 +36,7 @@ const ItemDisplay = () => {
       stock: 11,
     },
     {
-      id: '3',
+      id: '03',
       name: 'Espresso Roast Coffee',
       description: 'Strawberry, sugar cane, and vanilla.',
       price: 14.99,

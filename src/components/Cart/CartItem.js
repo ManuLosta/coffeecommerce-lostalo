@@ -20,11 +20,13 @@ const CartItem = ({ item, quantity }) => {
       <div className="CartItem__image">
         <img src={item.imgUrl} alt={item.name} />
       </div>
-      <div className="CartItem__info">
-        <p className="CartItem__info--text">{item.name}</p>
-        <p className="CartItem__info--text price">
-          ${(item.price * quantity).toFixed(2)}
-        </p>
+      <div className="CartItem__container">
+        <div className="CartItem__info">
+          <p className="CartItem__info--text">{item.name}</p>
+          <p className="CartItem__info--text price">
+            ${(item.price * quantity).toFixed(2)}
+          </p>
+        </div>
         <div className="CartItem__controls">
           <ItemCount
             stock={item.stock}

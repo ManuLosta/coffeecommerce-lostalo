@@ -18,18 +18,24 @@ const Cart = () => {
 
   return (
     <div className="Cart">
-      <div className="Cart__list">
-        {cartItems.map(({ item, quantity }) => (
-          <CartItem key={item.id} item={item} quantity={quantity} />
-        ))}
-      </div>
-      <div className="Cart__total">
-        <div className="Cart__total--text">
-          <p>Total por {totalItems} produto(s)</p>
-          <p>${price.toFixed(2)}</p>
-        </div>
-        <Link to="/cart">Terminar la compra</Link>
-      </div>
+      {totalItems === 0 ? (
+        <p>No hay productis</p>
+      ) : (
+        <>
+          <div className="Cart__list">
+            {cartItems.map(({ item, quantity }) => (
+              <CartItem key={item.id} item={item} quantity={quantity} />
+            ))}
+          </div>
+          <div className="Cart__total">
+            <div className="Cart__total--text">
+              <p>Total por {totalItems} produto(s)</p>
+              <p className="price">${price.toFixed(2)}</p>
+            </div>
+            <Link to="/cart">Terminar la compra</Link>
+          </div>
+        </>
+      )}
     </div>
   );
 };

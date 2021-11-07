@@ -2,7 +2,7 @@ import { useState } from 'react';
 import logo from '../../assets/icons/logo.svg';
 import './NavBar.scss';
 import Search from '../Search/Search';
-import CartWidget from './CartWidget';
+import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
 
@@ -11,19 +11,31 @@ const NavBar = () => {
 
   return (
     <nav className="NavBar">
-      <Link to="/" className="NavBar__logo">
+      <Link to="/" className="NavBar__logo NavBar__link">
         <img src={logo} alt="Logo" />
         <h1>CoffeeCommerce</h1>
       </Link>
       <div className={`NavBar__content ${isOpen ? 'show' : ''}`}>
         <div className="NavBar__left">
-          <Link onClick={() => setOpen(false)} to="/category/café">
+          <Link
+            className="NavBar__link"
+            onClick={() => setOpen(false)}
+            to="/category/café"
+          >
             Café
           </Link>
-          <Link onClick={() => setOpen(false)} to="/category/té">
+          <Link
+            className="NavBar__link"
+            onClick={() => setOpen(false)}
+            to="/category/té"
+          >
             Té
           </Link>
-          <Link onClick={() => setOpen(false)} to="/category/cafeteras">
+          <Link
+            className="NavBar__link"
+            onClick={() => setOpen(false)}
+            to="/category/cafeteras"
+          >
             Cafeteras
           </Link>
         </div>

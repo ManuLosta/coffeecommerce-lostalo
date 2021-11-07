@@ -47,9 +47,7 @@ const ItemDisplay = () => {
   ];
   const [quantity, setQuantity] = useState(1);
   const [confirm, setConfirm] = useState(false);
-  const { items, addItem, isInCart, getQuantity } = useContext(CartContext);
-  console.log(items);
-  console.log(getQuantity(products[item].id, products[item].stock));
+  const { addItem, isInCart, getQuantity } = useContext(CartContext);
 
   const handleChange = value => {
     setQuantity(value);

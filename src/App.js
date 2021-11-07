@@ -5,13 +5,14 @@ import NavBar from './components/NavBar/NavBar';
 import SearchList from './components/Search/SearchList';
 import { CartProvider } from './context/CartContext';
 import Home from './pages/Home';
+import Cart from './components/Cart/Cart';
 
 function App() {
   return (
     <Router>
-      <NavBar />
-      <Switch>
-        <CartProvider>
+      <CartProvider>
+        <NavBar />
+        <Switch>
           <Route exact path="/">
             <Home />
           </Route>
@@ -24,8 +25,11 @@ function App() {
           <Route path="/search/:query">
             <SearchList />
           </Route>
-        </CartProvider>
-      </Switch>
+          <Route path="/cart">
+            <Cart />
+          </Route>
+        </Switch>
+      </CartProvider>
     </Router>
   );
 }

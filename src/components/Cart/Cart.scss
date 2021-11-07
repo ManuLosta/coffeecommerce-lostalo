@@ -1,0 +1,68 @@
+@import '../../assets/colors.scss';
+
+.Cart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 110px;
+  padding: 50px 5vw;
+  background-color: $bg-3;
+  min-height: calc(100vh - 110px);
+
+  .Cart__list {
+    width: 60%;
+  }
+
+  .Cart__total {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .Cart__total--text {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        font-size: 2rem;
+        color: $fg-1;
+        font-weight: 600;
+      }
+    }
+
+    a {
+      text-align: center;
+      margin-top: 20px;
+      padding: 5px;
+      background-color: #9c4301;
+      color: #f4ebe5;
+      font-size: 1.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 6px solid #9c4301;
+      text-decoration: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 998px) {
+  .Cart {
+    margin-top: 68px;
+    min-height: calc(100vh - 77px);
+
+    .Cart__list {
+      width: 100%;
+      padding-bottom: 80px;
+    }
+
+    .Cart__total {
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 20px;
+      width: 100vw;
+      background-color: $bg-1;
+      position: fixed;
+      bottom: 0;
+    }
+  }
+}

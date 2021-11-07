@@ -1,8 +1,9 @@
 import './ItemListContainer.scss';
 import ItemList from './ItemList';
-import { getCategory, getItems } from '../../services/util';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { db } from '../../firebase';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 const ItemListContainer = ({ allItems, title, category }) => {
   const [items, setItems] = useState(null);
@@ -11,17 +12,27 @@ const ItemListContainer = ({ allItems, title, category }) => {
 
   useEffect(() => {
     setLoading(true);
+    var q;
     if (allItems) {
-      getItems().then(data => {
-        setItems(data);
-        setLoading(false);
-      });
+      q = query(collection(db, 'products'));
     } else {
-      getCategory(categoryId).then(data => {
-        setItems(data);
+      q = query(
+        collection(db, 'products'),
+        where('category', '==', categoryId)
+      );
+    }
+    getDocs(q)
+      .then(querySnapshot => {
+        if (querySnapshot.size === 0) {
+          console.log('No Results');
+        }
+        setItems(
+          querySnapshot.docs.map(doc => ({ ...doc.data(), id: doc.id }))
+        );
+      })
+      .finally(() => {
         setLoading(false);
       });
-    }
   }, [allItems, categoryId]);
 
   return (

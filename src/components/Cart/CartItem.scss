@@ -38,6 +38,7 @@
       font-weight: 600;
 
       &.price {
+        margin: 10px 0;
         font-weight: 700;
         font-size: 1.8rem;
       }
@@ -65,10 +66,11 @@
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 630px) {
   .CartItem__controls {
-    margin-top: 15px;
+    margin-top: 5px;
     justify-content: center;
+    width: 100%;
     flex-grow: 4;
   }
 }

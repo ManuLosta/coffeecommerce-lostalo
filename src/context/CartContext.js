@@ -26,7 +26,7 @@ export const CartProvider = ({ defaultValue = [], children }) => {
       return cartItem.item.id !== itemId;
     });
     setCartItems(newCartItems);
-    setTotalItems(newCartItems);
+    setTotalItems(getTotalItems(newCartItems));
   };
 
   const clear = () => {

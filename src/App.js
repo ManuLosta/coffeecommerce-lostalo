@@ -6,6 +6,7 @@ import SearchList from './components/Search/SearchList';
 import { CartProvider } from './context/CartContext';
 import Home from './pages/Home';
 import Cart from './components/Cart/Cart';
+import CheckoutForm from './components/CheckoutForm/CheckoutForm';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/checkout">
+            <CheckoutForm />
           </Route>
         </Switch>
       </CartProvider>

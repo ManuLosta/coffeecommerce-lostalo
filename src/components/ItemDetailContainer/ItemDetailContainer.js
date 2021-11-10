@@ -4,7 +4,7 @@ import LoaderDetails from '../Loader/LoaderDetails';
 import ItemDetail from './ItemDetail';
 import './ItemDetailContainer.scss';
 import { db } from '../../firebase';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import { getDoc, doc } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
@@ -13,16 +13,17 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    const q = query(collection(db, 'products'), where('__name__', '==', id));
-    getDocs(q)
-      .then(querySnapshot => {
-        if (querySnapshot.size === 0) {
-          console.log('No Results');
+    const docRef = doc(db, 'products', id);
+    getDoc(docRef)
+      .then(doc => {
+        if (doc.exists()) {
+          setItem({
+            ...doc.data(),
+            id: doc.id,
+          });
+        } else {
+          console.log('No such document!');
         }
-        setItem({
-          ...querySnapshot.docs[0].data(),
-          id: querySnapshot.docs[0].id,
-        });
       })
       .finally(() => {
         setLoading(false);

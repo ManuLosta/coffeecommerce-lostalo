@@ -1,0 +1,43 @@
+@import '../../assets/colors.scss';
+
+.CheckoutForm__container {
+  margin-top: 150px;
+}
+
+.CheckoutForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  label {
+    color: $fg-1;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+  }
+
+  input {
+    margin-bottom: 20px;
+    width: 50%;
+    padding: 10px;
+    background-color: $bg-2;
+    border: 0px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #5e2801;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  input[type='submit'] {
+    background-color: $fg-2;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    color: $bg-1;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1.6rem;
+    cursor: pointer;
+  }
+}

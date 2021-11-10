@@ -10,8 +10,4 @@ const app = initializeApp({
   appId: '1:851661048037:web:7e311710c0e9005bc06c0c',
 });
 
-export const getFirebase = () => {
-  return app;
-};
-
-export const db = getFirestore();
+export const db = getFirestore(app);

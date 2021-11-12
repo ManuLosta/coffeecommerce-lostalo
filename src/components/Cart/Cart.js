@@ -34,7 +34,7 @@ const Cart = () => {
           </div>
           <div className="Cart__total">
             <div className="Cart__total--text">
-              <p>Total por {totalItems} produto(s)</p>
+              <p>Total por {totalItems} producto(s)</p>
               <p className="price">${price.toFixed(2)}</p>
             </div>
             <Link to="/checkout">Terminar la compra</Link>

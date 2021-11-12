@@ -2,12 +2,12 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const app = initializeApp({
-  apiKey: 'AIzaSyCtg2J5h2tXohXLeaTnEfa5ULdDgtPTa0E',
-  authDomain: 'coffeecommerce-42fdc.firebaseapp.com',
-  projectId: 'coffeecommerce-42fdc',
-  storageBucket: 'coffeecommerce-42fdc.appspot.com',
-  messagingSenderId: '851661048037',
-  appId: '1:851661048037:web:7e311710c0e9005bc06c0c',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 });
 
 export const db = getFirestore(app);

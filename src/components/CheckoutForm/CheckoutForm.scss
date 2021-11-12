@@ -1,13 +1,33 @@
 @import '../../assets/colors.scss';
 
 .CheckoutForm__container {
+  height: 50vh;
   margin-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.CheckoutForm__message {
+  color: $fg-1;
+  width: 100%;
+  text-align: center;
+}
+
+p.CheckoutForm__message {
+  font-size: 1.8rem;
+}
+
+h3.CheckoutForm__message {
+  font-size: 3rem;
 }
 
 .CheckoutForm {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: clamp(240px, 80%, 500px);
 
   label {
     color: $fg-1;
@@ -16,8 +36,8 @@
   }
 
   input {
+    width: 100%;
     margin-bottom: 20px;
-    width: 50%;
     padding: 10px;
     background-color: $bg-2;
     border: 0px;
@@ -39,5 +59,12 @@
     font-weight: 600;
     font-size: 1.6rem;
     cursor: pointer;
+  }
+
+  p {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: $fg-1;
+    margin: 15px 0;
   }
 }

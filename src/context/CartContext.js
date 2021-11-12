@@ -31,6 +31,7 @@ export const CartProvider = ({ defaultValue = [], children }) => {
 
   const clear = () => {
     setCartItems(defaultValue);
+    setTotalItems(0);
   };
 
   const isInCart = itemId => {

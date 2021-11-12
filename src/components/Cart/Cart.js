@@ -37,7 +37,7 @@ const Cart = () => {
               <p>Total por {totalItems} produto(s)</p>
               <p className="price">${price.toFixed(2)}</p>
             </div>
-            <Link to="/cart">Terminar la compra</Link>
+            <Link to="/checkout">Terminar la compra</Link>
           </div>
         </>
       )}

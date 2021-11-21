@@ -12,44 +12,6 @@ const ItemDisplay = () => {
   const [item, setItem] = useState(0);
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
-  // const products = [
-  //   {
-  //     id: '00',
-  //     name: 'Light Roast Coffee',
-  //     description: 'Honey, citrus fruit, and floral.',
-  //     price: 14.99,
-  //     imgUrl:
-  //       'https://coffeebros.com/wp-content/uploads/2019/01/light-roast-website-png.png',
-  //     stock: 10,
-  //   },
-  //   {
-  //     id: '01',
-  //     name: 'Medium Roast Coffee',
-  //     description: 'Brown sugar, red fruit, and hazelnut.',
-  //     price: 14.99,
-  //     imgUrl:
-  //       'https://coffeebros.com/wp-content/uploads/2019/01/medium-roast-website-png-1.png',
-  //     stock: 7,
-  //   },
-  //   {
-  //     id: '02',
-  //     name: 'Dark Roast Coffee',
-  //     description: 'Chocolate, caramel, and maple.',
-  //     price: 14.99,
-  //     imgUrl:
-  //       'https://coffeebros.com/wp-content/uploads/2019/01/dark-roast-website-png-2.png',
-  //     stock: 11,
-  //   },
-  //   {
-  //     id: '03',
-  //     name: 'Espresso Roast Coffee',
-  //     description: 'Strawberry, sugar cane, and vanilla.',
-  //     price: 14.99,
-  //     imgUrl:
-  //       'https://coffeebros.com/wp-content/uploads/2019/02/Espresso-roast-website-png.png',
-  //     stock: 16,
-  //   },
-  // ];
   const [quantity, setQuantity] = useState(1);
   const [confirm, setConfirm] = useState(false);
   const { addItem, isInCart, getQuantity } = useContext(CartContext);

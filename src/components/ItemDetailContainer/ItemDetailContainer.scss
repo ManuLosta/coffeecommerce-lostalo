@@ -15,7 +15,7 @@
 
   .ItemDetail__image {
     aspect-ratio: 1 / 1;
-    width: clamp(400px, 50%, 700px);
+    width: clamp(400px, 35%, 700px);
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
@@ -97,7 +97,7 @@
   }
 
   .ItemDetail {
-    img {
+    .ItemDetail__image {
       width: 90%;
     }
 

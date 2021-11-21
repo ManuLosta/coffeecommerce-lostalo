@@ -79,7 +79,7 @@ const CheckoutForm = () => {
         <>
           <h3 className="CheckoutForm__message">¡Gracias por elegirnos!</h3>
           <p className="CheckoutForm__message">
-            Tu order ha sido creada con el id: {orderId}
+            Tu orden ha sido creada con el id: {orderId}
           </p>
         </>
       ) : (

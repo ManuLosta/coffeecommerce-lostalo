@@ -14,6 +14,7 @@ const ItemList = ({ items, loading, category }) => {
             <LoaderItem />
             <LoaderItem />
             <LoaderItem />
+            <LoaderItem />
           </>
         )}
       </div>

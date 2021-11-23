@@ -17,3 +17,82 @@ body {
   font-family: 'Work Sans', sans-serif;
   background-color: $bg-3;
 }
+
+.Signup__container,
+.Login__container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $bg-1;
+
+  .Signup__title,
+  .Login__title {
+    font-size: 2.4rem;
+    color: $fg-1;
+    margin-bottom: 20px;
+  }
+
+  .Signup,
+  .Login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: clamp(240px, 80%, 500px);
+
+    label {
+      color: $fg-1;
+      font-weight: 500;
+      font-size: 1.6rem;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: $bg-2;
+      border: 0px;
+      border-radius: 8px;
+      outline: none;
+      font-size: 1.6rem;
+      font-weight: 500;
+      color: #5e2801;
+      font-family: 'Work Sans', sans-serif;
+    }
+
+    button {
+      margin-top: 15px;
+      background-color: $fg-2;
+      padding: 8px;
+      border: none;
+      border-radius: 8px;
+      color: $bg-1;
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 600;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    p {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: $fg-1;
+      text-align: center;
+    }
+
+    a {
+      color: $fg-2;
+      text-decoration: none;
+    }
+
+    .error {
+      color: red;
+      background-color: rgba(255, 0, 0, 0.384);
+      padding: 5px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+  }
+}

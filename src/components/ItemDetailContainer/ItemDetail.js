@@ -38,7 +38,10 @@ const ItemDetail = ({ item }) => {
         <img src={item.imgUrl} alt={item.title} />
       </div>
       <div className="ItemDetail__content">
-        <h3 className="ItemDetail__title">{item.name}</h3>
+        <h3 className="ItemDetail__title">
+          {item.name}{' '}
+          {isInCart(item.id) && <span className="ItemDetail__isInCart"></span>}
+        </h3>
         <span className="ItemDetail__category">
           {item.category.toUpperCase()}
         </span>

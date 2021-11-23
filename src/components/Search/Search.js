@@ -30,6 +30,7 @@ const Search = ({ onSearch }) => {
           onChange={handleChange}
           type="text"
           value={query}
+          spellCheck={false}
         />
         <input className="Search__submit" type="submit" value="Buscar" />
       </form>

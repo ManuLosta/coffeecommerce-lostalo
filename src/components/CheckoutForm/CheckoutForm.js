@@ -73,6 +73,7 @@ const CheckoutForm = () => {
         console.log(err);
       });
   };
+
   return (
     <div className="CheckoutForm__container">
       {orderId ? (
@@ -90,7 +91,7 @@ const CheckoutForm = () => {
           <input onChange={handleChange} name="email" type="email" />
           <label htmlFor="phone">Teléfono</label>
           <input onChange={handleChange} name="phone" type="tel" />
-          <p>Total ${price}</p>
+          <p>Total {price}</p>
           <input type="submit" value="Confirmar Orden" />
         </form>
       )}

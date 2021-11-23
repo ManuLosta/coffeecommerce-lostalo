@@ -5,6 +5,7 @@ import Search from '../Search/Search';
 import CartWidget from '../CartWidget/CartWidget';
 import { Link } from 'react-router-dom';
 import { Squash as Hamburger } from 'hamburger-react';
+import UserWidget from '../UserWidget/UserWidget';
 
 const NavBar = () => {
   const [isOpen, setOpen] = useState(false);
@@ -43,6 +44,7 @@ const NavBar = () => {
       </div>
 
       <CartWidget />
+      <UserWidget />
       <Hamburger color="#5E2801" toggled={isOpen} toggle={setOpen} />
     </nav>
   );

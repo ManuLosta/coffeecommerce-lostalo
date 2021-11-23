@@ -1,36 +1,88 @@
+import { getDoc, doc, updateDoc } from 'firebase/firestore';
+import { useContext, useEffect } from 'react';
 import { createContext, useState } from 'react';
+import { db } from '../firebase';
+import { AuthContext } from './AuthContext';
 
 export const CartContext = createContext([]);
 
-export const CartProvider = ({ defaultValue = [], children }) => {
-  const [cartItems, setCartItems] = useState(defaultValue);
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const { currentUser } = useContext(AuthContext);
+  const cartRef = currentUser ? doc(db, 'users', currentUser.uid) : '';
 
-  const addItem = (item, quantity) => {
+  useEffect(() => {
+    if (currentUser) {
+      localStorage.removeItem('cart');
+      getDoc(cartRef)
+        .then(doc => {
+          setCartItems(doc.data().cart);
+          setTotalItems(getTotalItems(doc.data().cart));
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } else if (localStorage.getItem('cart')) {
+      setCartItems(JSON.parse(localStorage.getItem('cart')));
+      setTotalItems(getTotalItems(JSON.parse(localStorage.getItem('cart'))));
+      setLoading(false);
+    }
+  }, [cartRef, currentUser]);
+
+  const addItem = async (item, quantity) => {
+    let newCartItems;
+
     if (cartItems.length > 0 && isInCart(item.id)) {
       const itemIndex = cartItems.findIndex(
         currentItem => currentItem.item.id === item.id
       );
-      const newCartItems = cartItems;
+      newCartItems = cartItems;
       newCartItems[itemIndex].quantity += quantity;
-      setCartItems(newCartItems);
-      setTotalItems(getTotalItems(newCartItems));
     } else {
-      setCartItems([...cartItems, { item, quantity }]);
-      setTotalItems(getTotalItems([...cartItems, { item, quantity }]));
+      newCartItems = [...cartItems, { item, quantity }];
     }
-  };
 
-  const removeItem = itemId => {
-    const newCartItems = cartItems.filter(cartItem => {
-      return cartItem.item.id !== itemId;
-    });
+    if (currentUser) {
+      await updateDoc(cartRef, {
+        cart: newCartItems,
+      });
+    } else {
+      localStorage.setItem('cart', JSON.stringify(newCartItems));
+    }
+
     setCartItems(newCartItems);
     setTotalItems(getTotalItems(newCartItems));
   };
 
-  const clear = () => {
-    setCartItems(defaultValue);
+  const removeItem = async itemId => {
+    const newCartItems = cartItems.filter(cartItem => {
+      return cartItem.item.id !== itemId;
+    });
+
+    if (currentUser) {
+      await updateDoc(cartRef, {
+        cart: newCartItems,
+      });
+    } else {
+      localStorage.setItem('cart', JSON.stringify(newCartItems));
+    }
+
+    setCartItems(newCartItems);
+    setTotalItems(getTotalItems(newCartItems));
+  };
+
+  const clear = async () => {
+    if (currentUser) {
+      await updateDoc(cartRef, {
+        cart: [],
+      });
+    } else {
+      localStorage.setItem('cart', JSON.stringify([]));
+    }
+
+    setCartItems([]);
     setTotalItems(0);
   };
 
@@ -38,7 +90,6 @@ export const CartProvider = ({ defaultValue = [], children }) => {
     return cartItems.some(({ item }) => item.id === itemId);
   };
 
-  // Hace un chequeo del stock real menos las cantidad en el carrito, para que no se agreguen productos de más
   const getQuantity = (itemId, stock) => {
     const item = cartItems.find(currentItem => currentItem.item.id === itemId);
     if (item) {
@@ -65,6 +116,7 @@ export const CartProvider = ({ defaultValue = [], children }) => {
         isInCart,
         getQuantity,
         totalItems,
+        loading,
       }}
     >
       {children}

@@ -19,6 +19,7 @@
 
 .Item {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-evenly;
   margin: 35px;
@@ -32,6 +33,14 @@
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  .Item__isInCart {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 30px;
+    right: 30px;
   }
 
   .Item__image {
@@ -49,19 +58,19 @@
       pointer-events: none;
     }
   }
-}
 
-.Item .Item__info--name {
-  margin-top: auto;
-  font-size: 2.6rem;
-  font-weight: 700;
-  color: $fg-1;
-}
+  .Item__info--name {
+    margin-top: auto;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: $fg-1;
+  }
 
-.Item__info--price {
-  margin-top: 10px;
-  font-size: 2rem;
-  color: $fg-2;
+  .Item__info--price {
+    margin-top: 10px;
+    font-size: 2rem;
+    color: $fg-2;
+  }
 }
 
 @media only screen and (max-width: 600px) {

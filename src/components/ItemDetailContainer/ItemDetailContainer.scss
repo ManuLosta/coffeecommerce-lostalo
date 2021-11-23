@@ -13,6 +13,17 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
 
+  .ItemDetail__isInCart {
+    margin-left: 20px;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-image: url('../../assets/icons/incart-icon.svg');
+    background-position: 0 5px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
   .ItemDetail__image {
     aspect-ratio: 1 / 1;
     width: clamp(400px, 35%, 700px);

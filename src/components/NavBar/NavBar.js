@@ -41,10 +41,10 @@ const NavBar = () => {
           </Link>
         </div>
         <Search onSearch={() => setOpen(false)} />
+        <UserWidget />
       </div>
 
       <CartWidget />
-      <UserWidget />
       <Hamburger color="#5E2801" toggled={isOpen} toggle={setOpen} />
     </nav>
   );

@@ -12,7 +12,7 @@ const Hero = () => {
         </p>
         <a href="#list">Comprar ahora</a>
       </div>
-      <img src={heroImage} alt="Hero" />
+      <img className="Hero__image" src={heroImage} alt="Hero" />
     </div>
   );
 };

@@ -1,7 +1,9 @@
 @import '../../assets/colors.scss';
 
 .ItemDisplay {
-  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+  padding: 250px 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -12,7 +14,19 @@
   background-position: -10px;
   background-attachment: fixed;
 
-  img {
+  .ItemDisplay__waveTop {
+    width: 100%;
+    position: absolute;
+    top: -1px;
+  }
+
+  .ItemDisplay__waveBottom {
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+  }
+
+  .ItemDisplay__image {
     margin-right: 20px;
     width: clamp(300px, 20vw, 600px);
   }
@@ -88,18 +102,18 @@
 
 @media only screen and (max-width: 690px) {
   .ItemDisplay {
-    padding: 50px 15px;
+    padding: 100px 15px;
     align-items: center;
+
+    .ItemDisplay__image {
+      margin: 0;
+      width: clamp(50px, calc(80% - 40px), 360px);
+    }
 
     .ItemCount,
     .ItemCount__addToCart {
       width: 80%;
     }
-  }
-
-  .ItemDisplay img {
-    margin: 0;
-    width: clamp(50px, calc(80% - 40px), 360px);
   }
 
   .ItemDisplay__information {

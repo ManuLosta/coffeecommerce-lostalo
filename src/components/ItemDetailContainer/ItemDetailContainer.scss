@@ -4,7 +4,6 @@
   min-height: calc(100vh - 110px);
   background-color: $bg-1;
   padding: 50px 5vw;
-  margin-top: 110px;
 }
 
 .ItemDetail {
@@ -98,7 +97,6 @@
 @media only screen and (max-width: 998px) {
   .ItemDetailContainer {
     min-height: calc(100vh - 77px);
-    margin-top: 77px;
   }
 }
 

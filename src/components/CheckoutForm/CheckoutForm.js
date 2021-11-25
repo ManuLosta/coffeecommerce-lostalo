@@ -8,10 +8,13 @@ import {
   addDoc,
   doc,
   writeBatch,
+  getDoc,
 } from 'firebase/firestore';
+import { AuthContext } from '../../context/AuthContext';
 
 const CheckoutForm = () => {
   const { cartItems, clear } = useContext(CartContext);
+  const { currentUser } = useContext(AuthContext);
   const [price, setPrice] = useState(0);
   const [data, setData] = useState({
     name: '',
@@ -27,6 +30,21 @@ const CheckoutForm = () => {
     });
     setPrice(count.toFixed(2));
   }, [cartItems]);
+
+  useEffect(() => {
+    if (currentUser) {
+      getDoc(doc(db, 'users', currentUser.uid)).then(doc => {
+        console.log(doc);
+        if (doc.exists()) {
+          setData({
+            name: doc.data().name,
+            phone: doc.data().phone,
+            email: doc.data().email,
+          });
+        }
+      });
+    }
+  }, [currentUser]);
 
   const handleChange = e => {
     setData({
@@ -86,12 +104,27 @@ const CheckoutForm = () => {
       ) : (
         <form className="CheckoutForm" onSubmit={handleSubmit}>
           <label htmlFor="name">Nombre</label>
-          <input onChange={handleChange} name="name" type="name" />
+          <input
+            onChange={handleChange}
+            name="name"
+            type="name"
+            value={data.name}
+          />
           <label htmlFor="email">Correo electrónico</label>
-          <input onChange={handleChange} name="email" type="email" />
+          <input
+            onChange={handleChange}
+            name="email"
+            type="email"
+            value={data.email}
+          />
           <label htmlFor="phone">Teléfono</label>
-          <input onChange={handleChange} name="phone" type="tel" />
-          <p>Total {price}</p>
+          <input
+            onChange={handleChange}
+            name="phone"
+            type="tel"
+            value={data.phone}
+          />
+          <p>Total ${price}</p>
           <input type="submit" value="Confirmar Orden" />
         </form>
       )}

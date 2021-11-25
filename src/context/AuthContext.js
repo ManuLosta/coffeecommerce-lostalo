@@ -3,6 +3,7 @@ import { auth, db } from '../firebase';
 import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signOut,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useHistory } from 'react-router';
@@ -47,6 +48,17 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+  const signout = async () => {
+    return signOut(auth)
+      .then(() => {
+        setCurrentUser(null);
+        localStorage.removeItem('user');
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
   const getErrorMessage = code => {
     const messages = {
       'auth/invalid-email': 'Correo electrónico inválido.',
@@ -59,7 +71,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ login, signup, currentUser }}>
+    <AuthContext.Provider value={{ login, signup, signout, currentUser }}>
       {children}
     </AuthContext.Provider>
   );

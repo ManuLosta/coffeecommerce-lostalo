@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { collection, getDocs, query, where, orderBy } from 'firebase/firestore';
 import { db } from '../../firebase';
 import LoaderDisplay from '../Loader/LoaderDisplay';
+import waveTop from '../../assets/images/wave.svg';
+import waveBottom from '../../assets/images/wave-1.svg';
 
 const ItemDisplay = () => {
   const [item, setItem] = useState(0);
@@ -66,11 +68,16 @@ const ItemDisplay = () => {
 
   return (
     <div className="ItemDisplay">
+      <img className="ItemDisplay__waveTop" src={waveTop} alt="Wave" />
       {loading ? (
         <LoaderDisplay />
       ) : (
         <>
-          <img src={products[item].imgUrl} alt="" />
+          <img
+            className="ItemDisplay__image"
+            src={products[item].imgUrl}
+            alt=""
+          />
           <div className="ItemDisplay__buttons">
             <span
               className={item === 0 ? 'active' : null}
@@ -122,6 +129,7 @@ const ItemDisplay = () => {
           </div>{' '}
         </>
       )}
+      <img className="ItemDisplay__waveBottom" src={waveBottom} alt="Wave" />
     </div>
   );
 };

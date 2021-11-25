@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
+import userIcon from '../../assets/icons/user-icon.svg';
+import './UserWidget.scss';
+import { Link } from 'react-router-dom';
 
 const UserWidget = () => {
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, signout } = useContext(AuthContext);
   const [userName, setUserName] = useState();
 
   useEffect(() => {
@@ -17,9 +20,25 @@ const UserWidget = () => {
     }
   }, [currentUser]);
 
+  const handleLogOut = () => {
+    signout();
+    setUserName('');
+  };
+
   return (
-    <div>
+    <div className="UserWidget">
+      <img src={userIcon} alt={userName} />
       <p>{userName}</p>
+      <div className="UserWidget__dropdown">
+        {currentUser ? (
+          <button onClick={handleLogOut}>Cerrar Sesión</button>
+        ) : (
+          <>
+            <Link to="/login">Iniciar sesión</Link>
+            <Link to="/signup">Registrarse</Link>
+          </>
+        )}
+      </div>
     </div>
   );
 };

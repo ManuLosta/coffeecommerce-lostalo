@@ -9,25 +9,22 @@ export const CartContext = createContext([]);
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
-  const [loading, setLoading] = useState(true);
   const { currentUser } = useContext(AuthContext);
   const cartRef = currentUser ? doc(db, 'users', currentUser.uid) : '';
 
   useEffect(() => {
     if (currentUser) {
       localStorage.removeItem('cart');
-      getDoc(cartRef)
-        .then(doc => {
-          setCartItems(doc.data().cart);
-          setTotalItems(getTotalItems(doc.data().cart));
-        })
-        .finally(() => {
-          setLoading(false);
-        });
+      getDoc(cartRef).then(doc => {
+        setCartItems(doc.data().cart);
+        setTotalItems(getTotalItems(doc.data().cart));
+      });
     } else if (localStorage.getItem('cart')) {
       setCartItems(JSON.parse(localStorage.getItem('cart')));
       setTotalItems(getTotalItems(JSON.parse(localStorage.getItem('cart'))));
-      setLoading(false);
+    } else {
+      setCartItems([]);
+      setTotalItems(0);
     }
   }, [cartRef, currentUser]);
 
@@ -75,13 +72,13 @@ export const CartProvider = ({ children }) => {
 
   const clear = async () => {
     if (currentUser) {
+      console.log('object');
       await updateDoc(cartRef, {
         cart: [],
       });
-    } else {
-      localStorage.setItem('cart', JSON.stringify([]));
     }
 
+    localStorage.removeItem('cart');
     setCartItems([]);
     setTotalItems(0);
   };
@@ -116,7 +113,6 @@ export const CartProvider = ({ children }) => {
         isInCart,
         getQuantity,
         totalItems,
-        loading,
       }}
     >
       {children}

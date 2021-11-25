@@ -14,13 +14,14 @@ html {
 }
 
 body {
+  padding-top: 110px;
   font-family: 'Work Sans', sans-serif;
   background-color: $bg-3;
 }
 
 .Signup__container,
 .Login__container {
-  height: 100vh;
+  height: calc(100vh - 110px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,5 +95,16 @@ body {
       border-radius: 8px;
       margin-bottom: 15px;
     }
+  }
+}
+
+@media only screen and (max-width: 998px) {
+  body {
+    padding-top: 77px;
+  }
+
+  .Signup__container,
+  .Login__container {
+    height: calc(100vh - 77px);
   }
 }

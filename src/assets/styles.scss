@@ -21,7 +21,8 @@ body {
 
 .Signup__container,
 .Login__container {
-  height: calc(100vh - 110px);
+  min-height: calc(100vh - 110px);
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,11 +101,17 @@ body {
 
 @media only screen and (max-width: 998px) {
   body {
-    padding-top: 77px;
+    padding-top: 92px;
   }
 
   .Signup__container,
   .Login__container {
-    height: calc(100vh - 77px);
+    min-height: calc(100vh - 77px);
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  body {
+    padding-top: 77px;
   }
 }

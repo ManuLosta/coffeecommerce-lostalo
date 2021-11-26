@@ -41,7 +41,7 @@ const NavBar = () => {
           </Link>
         </div>
         <Search onSearch={() => setOpen(false)} />
-        <UserWidget />
+        <UserWidget onClick={() => setOpen(false)} />
       </div>
 
       <CartWidget />

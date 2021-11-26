@@ -6,7 +6,7 @@ import userIcon from '../../assets/icons/user-icon.svg';
 import './UserWidget.scss';
 import { Link } from 'react-router-dom';
 
-const UserWidget = () => {
+const UserWidget = ({ onClick }) => {
   const { currentUser, signout } = useContext(AuthContext);
   const [userName, setUserName] = useState();
 
@@ -21,8 +21,10 @@ const UserWidget = () => {
   }, [currentUser]);
 
   const handleLogOut = () => {
-    signout();
-    setUserName('');
+    onClick();
+    signout().then(() => {
+      setUserName('');
+    });
   };
 
   return (
@@ -34,8 +36,12 @@ const UserWidget = () => {
           <button onClick={handleLogOut}>Cerrar Sesión</button>
         ) : (
           <>
-            <Link to="/login">Iniciar sesión</Link>
-            <Link to="/signup">Registrarse</Link>
+            <Link onClick={onClick} to="/login">
+              Iniciar sesión
+            </Link>
+            <Link onClick={onClick} to="/signup">
+              Registrarse
+            </Link>
           </>
         )}
       </div>

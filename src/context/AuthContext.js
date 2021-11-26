@@ -37,6 +37,7 @@ export const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
         setDoc(doc(db, 'users', userCredential.user.uid), {
+          cart: [],
           email: email,
           name: name,
           phone: phone,

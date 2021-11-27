@@ -4,9 +4,9 @@ import LoaderItem from '../Loader/LoaderItem';
 
 const ItemList = ({ items, loading, category }) => {
   return (
-    <div className="ItemList">
+    <div className="ItemList__container">
       <h2>{category}</h2>
-      <div className="ItemList__flex">
+      <div className="ItemList">
         {!loading ? (
           items.map(item => <Item key={item.id} item={item} />)
         ) : (

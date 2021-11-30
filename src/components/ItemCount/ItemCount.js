@@ -1,4 +1,5 @@
 import './ItemCount.scss';
+import cartIcon from '../../assets/icons/cart-icon-light.svg';
 
 const ItemCount = ({ stock, id, onAdd, onChange, count }) => {
   const handleAdd = amount => {
@@ -26,6 +27,7 @@ const ItemCount = ({ stock, id, onAdd, onChange, count }) => {
         </button>
       </div>
       <button onClick={() => onAdd(id, count)} className="ItemCount__addToCart">
+        <img src={cartIcon} alt="Add to cart" />
         Agregar al carrito
       </button>
     </>

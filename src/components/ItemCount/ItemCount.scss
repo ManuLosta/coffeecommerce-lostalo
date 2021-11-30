@@ -1,6 +1,7 @@
 @import '../../assets/colors.scss';
 
 .ItemCount {
+  min-width: 210px;
   height: 40px;
   margin-top: 20px;
   display: flex;
@@ -42,6 +43,7 @@
 }
 
 .ItemCount__addToCart {
+  min-width: 210px;
   margin-top: 20px;
   width: 100%;
   padding: 8px;
@@ -52,4 +54,15 @@
   font-family: 'Work Sans', sans-serif;
   font-size: 1.6rem;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:active {
+    background-color: $shade-1;
+  }
+
+  img {
+    margin-right: 10px;
+  }
 }

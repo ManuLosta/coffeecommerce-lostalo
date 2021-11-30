@@ -36,13 +36,16 @@ export const AuthProvider = ({ children }) => {
   const signup = async (email, password, name, phone) => {
     return createUserWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
+        const user = userCredential.user;
         setDoc(doc(db, 'users', userCredential.user.uid), {
           cart: [],
           email: email,
           name: name,
           phone: phone,
         }).catch(error => console.error(error));
-        history.push('/login');
+        localStorage.setItem('user', JSON.stringify(user));
+        setCurrentUser(user);
+        history.push('/');
       })
       .catch(error => {
         throw getErrorMessage(error.code);

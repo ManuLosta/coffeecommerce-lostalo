@@ -22,6 +22,11 @@ const Signup = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
+    if (data.password !== data.confirmPassword) {
+      setError('Las contraseñas no coinciden.');
+      return;
+    }
+
     signup(data.email, data.password, data.name, data.phone).catch(error => {
       setError(error);
     });
@@ -40,7 +45,7 @@ const Signup = () => {
         <label htmlFor="password">Contraseña</label>
         <input onChange={handleChange} name="password" type="password" />
         <label htmlFor="password">Repetir contraseña</label>
-        <input onChange={handleChange} name="password" type="password" />
+        <input onChange={handleChange} name="confirmPassword" type="password" />
         {error && <p className="error">{error}</p>}
         <p>
           ¿Ya tienes una cuenta?{' '}

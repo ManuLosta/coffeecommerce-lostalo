@@ -40,6 +40,10 @@
     font-weight: 600;
     font-size: 1.4rem;
     cursor: pointer;
+
+    &:active {
+      background-color: $shade-1;
+    }
   }
 }
 

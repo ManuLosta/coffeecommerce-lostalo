@@ -12,7 +12,8 @@ npm start
 
 ## Demostración
 
-https://i.imgur.com/6rSML2H.mp4
+https://user-images.githubusercontent.com/61239197/144143342-b560dc2b-2c21-4f60-bedd-649368260676.mp4
+
 
 ## Librerías utilizadas
 

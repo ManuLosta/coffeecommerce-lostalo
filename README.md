@@ -2,6 +2,8 @@
 
 Un e-commerce desarrollado con ReactJS donde podés encontrar todo tipo de café, té, cafeteras y más!
 
+El proyecto se encuentra hosteado en Netlify [en este enlace.](https://coffeecommerce.netlify.app/)
+
 ## Ejecutar localmente
 
 ```
@@ -13,7 +15,6 @@ npm start
 ## Demostración
 
 https://user-images.githubusercontent.com/61239197/144143342-b560dc2b-2c21-4f60-bedd-649368260676.mp4
-
 
 ## Librerías utilizadas
 

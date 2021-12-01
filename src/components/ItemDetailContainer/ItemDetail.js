@@ -4,6 +4,7 @@ import { CartContext } from '../../context/CartContext';
 import ConfirmBox from '../ConfirmBox/ConfirmBox';
 import { Link } from 'react-router-dom';
 import { motion, useAnimation } from 'framer-motion';
+import isInCartIcon from '../../assets/icons/incart-icon.svg';
 
 const ItemDetail = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
@@ -47,16 +48,16 @@ const ItemDetail = ({ item }) => {
     <div className="ItemDetail">
       <div className="ItemDetail__image">
         <img src={item.imgUrl} alt={item.title} />
+        <motion.img
+          src={isInCartIcon}
+          alt="En el carrito"
+          animate={controls}
+          initial={{ opacity: 0, scale: 0 }}
+          className="ItemDetail__isInCart"
+        />
       </div>
       <div className="ItemDetail__content">
-        <h3 className="ItemDetail__title">
-          {item.name}
-          <motion.span
-            animate={controls}
-            initial={{ opacity: 0, scale: 0 }}
-            className="ItemDetail__isInCart"
-          ></motion.span>
-        </h3>
+        <h3 className="ItemDetail__title">{item.name}</h3>
         <span className="ItemDetail__category">
           {item.category.toUpperCase()}
         </span>

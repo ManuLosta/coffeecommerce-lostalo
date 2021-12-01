@@ -14,8 +14,6 @@ npm start
 
 ## Demostración
 
-https://user-images.githubusercontent.com/61239197/144143342-b560dc2b-2c21-4f60-bedd-649368260676.mp4
-
 ## Librerías utilizadas
 
 - [Hamburger React](https://www.npmjs.com/package/hamburger-react) : Para crear el botón que abre la navegación en mobile.
@@ -23,3 +21,5 @@ https://user-images.githubusercontent.com/61239197/144143342-b560dc2b-2c21-4f60-
 - [React Content Loader](https://github.com/danilowoz/react-content-loader): Una alternativa al típico spinner. Hace que la expriencia del usuario sea mejor.
 
 - [string-similarity](https://www.npmjs.com/package/string-similarity): Para comparar dos strings y ver su similitud. Lo utilicé para la lógica de la búsqueda.
+
+-[framer-motion](https://www.framer.com/motion/): Se utilizó para implementar animaciones.

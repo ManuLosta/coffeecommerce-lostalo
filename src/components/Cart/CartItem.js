@@ -14,13 +14,25 @@ const CartItem = ({ item, quantity }) => {
   };
 
   const handleRemove = () => {
-    controls.start({ x: -500, opacity: 0 }).then(() => {
-      removeItem(item.id);
-    });
+    controls
+      .start({
+        x: -200,
+        opacity: 0,
+        height: 0,
+        margin: 0,
+        padding: 0,
+      })
+      .then(() => {
+        removeItem(item.id);
+      });
   };
 
   return (
-    <motion.div animate={controls} className="CartItem">
+    <motion.div
+      animate={controls}
+      transition={{ duration: 0.25 }}
+      className="CartItem"
+    >
       <div className="CartItem__image">
         <img src={item.imgUrl} alt={item.name} />
       </div>

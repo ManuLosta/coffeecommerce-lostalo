@@ -15,6 +15,7 @@ import { AuthContext } from '../../context/AuthContext';
 const CheckoutForm = () => {
   const { cartItems, clear } = useContext(CartContext);
   const { currentUser } = useContext(AuthContext);
+  const [error, setError] = useState();
   const [price, setPrice] = useState(0);
   const [data, setData] = useState({
     name: '',
@@ -55,6 +56,11 @@ const CheckoutForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
+    if (data.name === '' || data.email === '' || data.phone === '') {
+      setError('Por favor ingresar todos los datos.');
+      return;
+    }
 
     const orderItems = cartItems.map(({ item, quantity }) => ({
       item: {
@@ -124,6 +130,7 @@ const CheckoutForm = () => {
             type="tel"
             value={data.phone}
           />
+          {error && <p className="error">{error}</p>}
           <p>Total ${price}</p>
           <input type="submit" value="Confirmar Orden" />
         </form>

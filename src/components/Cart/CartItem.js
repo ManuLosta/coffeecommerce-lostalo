@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { motion, useAnimation } from 'framer-motion';
 import { CartContext } from '../../context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import './CartItem.scss';
@@ -6,17 +7,20 @@ import removeIcon from '../../assets/icons/delete.svg';
 
 const CartItem = ({ item, quantity }) => {
   const { addItem, removeItem } = useContext(CartContext);
+  const controls = useAnimation();
 
   const handleChange = newQuantity => {
     addItem(item, -quantity + newQuantity);
   };
 
   const handleRemove = () => {
-    removeItem(item.id);
+    controls.start({ x: -500, opacity: 0 }).then(() => {
+      removeItem(item.id);
+    });
   };
 
   return (
-    <div className="CartItem">
+    <motion.div animate={controls} className="CartItem">
       <div className="CartItem__image">
         <img src={item.imgUrl} alt={item.name} />
       </div>
@@ -42,7 +46,7 @@ const CartItem = ({ item, quantity }) => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

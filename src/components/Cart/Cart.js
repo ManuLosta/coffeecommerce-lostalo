@@ -3,6 +3,7 @@ import { CartContext } from '../../context/CartContext';
 import CartItem from './CartItem';
 import './Cart.scss';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Cart = () => {
   const { cartItems, totalItems } = useContext(CartContext);
@@ -27,11 +28,15 @@ const Cart = () => {
         </>
       ) : (
         <>
-          <div className="Cart__list">
+          <motion.div
+            className="Cart__list"
+            layout
+            transition={{ type: 'spring', stiffness: 500, damping: 20 }}
+          >
             {cartItems.map(({ item, quantity }) => (
               <CartItem key={item.id} item={item} quantity={quantity} />
             ))}
-          </div>
+          </motion.div>
           <div className="Cart__total">
             <div className="Cart__total--text">
               <p>Total por {totalItems} producto(s)</p>

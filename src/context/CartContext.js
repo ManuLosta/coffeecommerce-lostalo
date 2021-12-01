@@ -41,6 +41,9 @@ export const CartProvider = ({ children }) => {
       newCartItems = [...cartItems, { item, quantity }];
     }
 
+    setCartItems(newCartItems);
+    setTotalItems(getTotalItems(newCartItems));
+
     if (currentUser) {
       const cartRef = doc(db, 'users', currentUser.uid);
       await updateDoc(cartRef, {
@@ -49,9 +52,6 @@ export const CartProvider = ({ children }) => {
     } else {
       localStorage.setItem('cart', JSON.stringify(newCartItems));
     }
-
-    setCartItems(newCartItems);
-    setTotalItems(getTotalItems(newCartItems));
   };
 
   const removeItem = async itemId => {
@@ -59,6 +59,9 @@ export const CartProvider = ({ children }) => {
       return cartItem.item.id !== itemId;
     });
 
+    setCartItems(newCartItems);
+    setTotalItems(getTotalItems(newCartItems));
+
     if (currentUser) {
       const cartRef = doc(db, 'users', currentUser.uid);
       await updateDoc(cartRef, {
@@ -67,9 +70,6 @@ export const CartProvider = ({ children }) => {
     } else {
       localStorage.setItem('cart', JSON.stringify(newCartItems));
     }
-
-    setCartItems(newCartItems);
-    setTotalItems(getTotalItems(newCartItems));
   };
 
   const clear = async () => {

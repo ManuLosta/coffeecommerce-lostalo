@@ -9,6 +9,8 @@ import { db } from '../../firebase';
 import LoaderDisplay from '../Loader/LoaderDisplay';
 import waveTop from '../../assets/images/wave.svg';
 import waveBottom from '../../assets/images/wave-1.svg';
+import { AnimateSharedLayout } from 'framer-motion';
+import ItemDisplayButton from './ItemDisplayButton';
 
 const ItemDisplay = () => {
   const [item, setItem] = useState(0);
@@ -78,28 +80,30 @@ const ItemDisplay = () => {
             src={products[item].imgUrl}
             alt=""
           />
-          <div className="ItemDisplay__buttons">
-            <span
-              className={item === 0 ? 'active' : null}
-              style={{ backgroundColor: '#d6d4d1' }}
-              onClick={() => handleItemChange(0)}
-            ></span>
-            <span
-              className={item === 1 ? 'active' : null}
-              style={{ backgroundColor: '#a8a098' }}
-              onClick={() => handleItemChange(1)}
-            ></span>
-            <span
-              className={item === 2 ? 'active' : null}
-              style={{ backgroundColor: '#665d55' }}
-              onClick={() => handleItemChange(2)}
-            ></span>
-            <span
-              className={item === 3 ? 'active' : null}
-              style={{ backgroundColor: '#d35b56' }}
-              onClick={() => handleItemChange(3)}
-            ></span>
-          </div>
+          <AnimateSharedLayout>
+            <ul className="ItemDisplay__buttons">
+              <ItemDisplayButton
+                isSelected={item === 0}
+                color="#d6d4d1"
+                onClick={() => handleItemChange(0)}
+              />
+              <ItemDisplayButton
+                isSelected={item === 1}
+                color="#a8a098"
+                onClick={() => handleItemChange(1)}
+              />
+              <ItemDisplayButton
+                isSelected={item === 2}
+                color="#665d55"
+                onClick={() => handleItemChange(2)}
+              />
+              <ItemDisplayButton
+                isSelected={item === 3}
+                color="#d35b56"
+                onClick={() => handleItemChange(3)}
+              />
+            </ul>
+          </AnimateSharedLayout>
           <div className="ItemDisplay__information">
             <h3>{products[item].name}</h3>
             <p>{products[item].description}</p>

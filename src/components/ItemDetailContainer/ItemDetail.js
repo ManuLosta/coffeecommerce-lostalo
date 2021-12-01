@@ -1,11 +1,13 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from '../../context/CartContext';
 import ConfirmBox from '../ConfirmBox/ConfirmBox';
 import { Link } from 'react-router-dom';
+import { motion, useAnimation } from 'framer-motion';
 
 const ItemDetail = ({ item }) => {
   const [quantity, setQuantity] = useState(1);
+  const controls = useAnimation();
   const [confirm, setConfirm] = useState(false);
   const { addItem, isInCart, getQuantity } = useContext(CartContext);
 
@@ -32,6 +34,15 @@ const ItemDetail = ({ item }) => {
     setConfirm(false);
   };
 
+  useEffect(() => {
+    if (isInCart(item.id)) {
+      controls.start({
+        opacity: 1,
+        scale: 1,
+      });
+    }
+  }, [controls, isInCart, item]);
+
   return (
     <div className="ItemDetail">
       <div className="ItemDetail__image">
@@ -39,8 +50,12 @@ const ItemDetail = ({ item }) => {
       </div>
       <div className="ItemDetail__content">
         <h3 className="ItemDetail__title">
-          {item.name}{' '}
-          {isInCart(item.id) && <span className="ItemDetail__isInCart"></span>}
+          {item.name}
+          <motion.span
+            animate={controls}
+            initial={{ opacity: 0, scale: 0 }}
+            className="ItemDetail__isInCart"
+          ></motion.span>
         </h3>
         <span className="ItemDetail__category">
           {item.category.toUpperCase()}

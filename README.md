@@ -9,6 +9,7 @@ El proyecto se encuentra hosteado en Netlify [en este enlace.](https://coffeecom
 ```
 git clone https://github.com/ManuLosta/coffeecommerce-lostalo
 cd coffeecommerce-lostalo
+npm install
 npm start
 ```
 
